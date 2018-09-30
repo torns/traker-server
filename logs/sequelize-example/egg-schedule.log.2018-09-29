@@ -1,0 +1,10 @@
+2018-09-30 13:58:02,961 INFO 80796 [1538287082938825686673001308] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/clean_log.js task received by app
+2018-09-30 13:58:02,963 INFO 80796 [1538287082938825686673001308] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/clean_log.js executing by app
+2018-09-30 13:58:02,997 INFO 80796 [1538287082938825686673001308] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/clean_log.js execute succeed, used 34ms
+2018-09-30 13:58:02,941 INFO 80794 [1538287082938825686673001308] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/clean_log.js triggered, send random by agent
+2018-09-30 13:58:02,950 INFO 80794 [Timer] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/clean_log.js next time will execute at 2018-10-01 00:00:00.000
+2018-09-30 13:58:03,932 INFO 80796 [1538287083932825687663623873] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/rotate_by_file.js task received by app
+2018-09-30 13:58:03,933 INFO 80796 [1538287083932825687663623873] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/rotate_by_file.js executing by app
+2018-09-30 13:58:03,937 INFO 80796 [1538287083932825687663623873] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/rotate_by_file.js execute succeed, used 4ms
+2018-09-30 13:58:03,932 INFO 80794 [1538287083932825687663623873] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/rotate_by_file.js triggered, send random by agent
+2018-09-30 13:58:03,936 INFO 80794 [Timer] /work/test/egg-example/node_modules/.3.0.3@egg-logrotator/app/schedule/rotate_by_file.js next time will execute at 2018-10-01 00:00:01.000

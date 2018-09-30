@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "yuhonyon",
+    "password": "123456",
+    "database": "tracker_development",
+    "host": "97.64.36.18",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "yuhonyon",
+    "password": "123456",
+    "database": "tracker_test",
+    "host": "97.64.36.18",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "yuhonyon",
+    "password": "123456",
+    "database": "tracker_production",
+    "host": "97.64.36.18",
+    "dialect": "mysql"
+  }
+}
