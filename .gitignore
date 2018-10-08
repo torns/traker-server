@@ -7,6 +7,14 @@ yarn-error.log*
 /test/e2e/reports/
 selenium-debug.log
 
+logs/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+coverage/
+.idea/
+
 # Editor directories and files
 .idea
 .vscode

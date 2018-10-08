@@ -113,7 +113,6 @@ class Account extends Service {
 
   async login(moblie,password) {
     try{
-
       const validMoblieResponse=await this.checkValid("moblie",moblie)
       if (validMoblieResponse.isSuccess()) {
         return this.ServerResponse.error('账号不存在')

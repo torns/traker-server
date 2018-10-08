@@ -1,5 +1,92 @@
 [
   {
+    "name": "accounts",
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/account",
+    "regexp": "/^\\/account(?:\\/(?=$))?$/",
+    "stack": [
+      "checkLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "account",
+    "methods": [
+      "PATCH",
+      "PUT"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/account/:id",
+    "regexp": "/^\\/account\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "checkLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "destroy_account",
+    "methods": [
+      "DELETE"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/account/:id",
+    "regexp": "/^\\/account\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "checkLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/account/login",
+    "regexp": "/^\\/account\\/login(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/account/register",
+    "regexp": "/^\\/account\\/register(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
     "name": null,
     "methods": [
       "HEAD",
@@ -226,103 +313,6 @@
     "regexp": "/^\\/account\\/logout(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": "accounts",
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/accounts",
-    "regexp": "/^\\/accounts(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": "account",
-    "methods": [
-      "PATCH",
-      "PUT"
-    ],
-    "paramNames": [
-      {
-        "name": "id",
-        "prefix": "/",
-        "delimiter": "/",
-        "optional": false,
-        "repeat": false,
-        "partial": false,
-        "asterisk": false,
-        "pattern": "[^\\/]+?"
-      }
-    ],
-    "path": "/accounts/:id",
-    "regexp": "/^\\/accounts\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": "destroy_account",
-    "methods": [
-      "DELETE"
-    ],
-    "paramNames": [
-      {
-        "name": "id",
-        "prefix": "/",
-        "delimiter": "/",
-        "optional": false,
-        "repeat": false,
-        "partial": false,
-        "asterisk": false,
-        "pattern": "[^\\/]+?"
-      }
-    ],
-    "path": "/accounts/:id",
-    "regexp": "/^\\/accounts\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/accounts/login",
-    "regexp": "/^\\/accounts\\/login(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/accounts/logout",
-    "regexp": "/^\\/accounts\\/logout(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/accounts/register",
-    "regexp": "/^\\/accounts\\/register(?:\\/(?=$))?$/",
-    "stack": [
       "wrappedController"
     ]
   }

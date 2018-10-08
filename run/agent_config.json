@@ -73,7 +73,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/work/test/egg-example/node_modules/.2.1.0@egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -85,11 +85,18 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "/work/test/egg-example/node_modules/.3.1.0@egg-watcher/lib/event-sources/default",
-        "development": "/work/test/egg-example/node_modules/.3.1.0@egg-watcher/lib/event-sources/development"
+        "default": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/lib/event-sources/default",
+        "development": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/lib/event-sources/development"
+      }
+    },
+    "customLogger": {
+      "scheduleLogger": {
+        "consoleLevel": "NONE",
+        "file": "/work/traker/traker-server/logs/traker-server/egg-schedule.log"
       }
     },
     "multipart": {
+      "mode": "stream",
       "autoFields": false,
       "defaultCharset": "utf8",
       "fieldNameSize": 100,
@@ -98,7 +105,11 @@
       "fileSize": "10mb",
       "files": 10,
       "fileExtensions": [],
-      "whitelist": null
+      "whitelist": null,
+      "tmpdir": "/var/folders/q1/0468pp3n7bs3jzns42n_ww040000gn/T/egg-multipart-tmp/traker-server",
+      "cleanSchedule": {
+        "cron": "0 30 4 * * *"
+      }
     },
     "development": {
       "watchDirs": [],
@@ -106,12 +117,6 @@
       "fastReady": false,
       "reloadOnDebug": true,
       "overrideDefault": false
-    },
-    "customLogger": {
-      "scheduleLogger": {
-        "consoleLevel": "NONE",
-        "file": "/work/test/egg-example/logs/sequelize-example/egg-schedule.log"
-      }
     },
     "logrotator": {
       "filesRotateByHour": null,
@@ -124,14 +129,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "/work/test/egg-example/app/public",
+      "dir": "/work/traker/traker-server/app/public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "/work/test/egg-example/app/view",
+      "root": "/work/traker/traker-server/app/view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -146,19 +151,20 @@
       "password": "<String len: 6>"
     },
     "env": "local",
-    "name": "sequelize-example",
-    "keys": "<String len: 35>",
+    "name": "traker-server",
+    "keys": "<String len: 23>",
     "proxy": false,
     "protocolHeaders": "x-forwarded-proto",
     "ipHeaders": "x-forwarded-for",
     "hostHeaders": "",
     "pkg": {
-      "name": "sequelize-example",
+      "name": "traker-server",
       "version": "1.0.0",
       "description": "The egg example project that uses egg-sequelize plugin.",
       "private": true,
       "dependencies": {
         "egg": "^2.11.2",
+        "egg-scripts": "^2.9.1",
         "egg-sequelize": "^4.1.0",
         "egg-swagger-decorator": "^0.1.1",
         "lodash": "^4.17.11",
@@ -185,14 +191,16 @@
         "cov": "egg-bin cov",
         "ci": "npm run cov",
         "autod": "autod",
-        "sequelize": "sequelize --"
+        "sequelize": "sequelize --",
+        "start": "NODE_ENV=production egg-scripts start --port=7002 --daemon --title=traker-server --env=prod",
+        "stop": "egg-scripts stop --title=traker-server"
       },
       "author": "Qi Yu <njuyuqi@gmail.coom>",
       "license": "MIT"
     },
-    "baseDir": "/work/test/egg-example",
+    "baseDir": "/work/traker/traker-server",
     "HOME": "/Users/ks",
-    "rundir": "/work/test/egg-example/run",
+    "rundir": "/work/traker/traker-server/run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -222,7 +230,7 @@
       }
     },
     "logger": {
-      "dir": "/work/test/egg-example/logs/sequelize-example",
+      "dir": "/work/traker/traker-server/logs/traker-server",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -230,7 +238,7 @@
       "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
-      "appLogName": "sequelize-example-web.log",
+      "appLogName": "traker-server-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
@@ -297,8 +305,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.3.1.0@egg-session",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.3.1.0@egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -310,8 +318,8 @@
         "session"
       ],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.4.0@egg-security",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.4.0@egg-security",
       "version": "2.4.0"
     },
     "jsonp": {
@@ -323,8 +331,8 @@
         "security"
       ],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.0.0@egg-jsonp",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.0.0@egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -336,8 +344,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.1.0@egg-onerror",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -347,8 +355,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.0.0@egg-i18n",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -358,20 +366,33 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.3.1.0@egg-watcher",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher",
       "version": "3.1.0"
+    },
+    "schedule": {
+      "enable": true,
+      "package": "egg-schedule",
+      "name": "schedule",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.3.4.0@egg-schedule",
+      "version": "3.4.0"
     },
     "multipart": {
       "enable": true,
       "package": "egg-multipart",
       "name": "multipart",
       "dependencies": [],
-      "optionalDependencies": [],
+      "optionalDependencies": [
+        "schedule"
+      ],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart",
-      "version": "2.1.0"
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart",
+      "version": "2.2.1"
     },
     "development": {
       "enable": true,
@@ -384,20 +405,9 @@
       "env": [
         "local"
       ],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.4.1@egg-development",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.4.1@egg-development",
       "version": "2.4.1"
-    },
-    "schedule": {
-      "enable": true,
-      "package": "egg-schedule",
-      "name": "schedule",
-      "dependencies": [],
-      "optionalDependencies": [],
-      "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.3.4.0@egg-schedule",
-      "version": "3.4.0"
     },
     "logrotator": {
       "enable": true,
@@ -408,8 +418,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator",
       "version": "3.0.3"
     },
     "static": {
@@ -419,8 +429,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.1.1@egg-static",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.1.1@egg-static",
       "version": "2.1.1"
     },
     "view": {
@@ -430,8 +440,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.2.1.0@egg-view",
+      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.2.1.0@egg-view",
       "version": "2.1.0"
     },
     "sequelize": {
@@ -441,8 +451,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/test/egg-example/config/plugin.js",
-      "path": "/work/test/egg-example/node_modules/.4.1.0@egg-sequelize",
+      "from": "/work/traker/traker-server/config/plugin.js",
+      "path": "/work/traker/traker-server/node_modules/.4.1.0@egg-sequelize",
       "version": "4.1.0"
     }
   }

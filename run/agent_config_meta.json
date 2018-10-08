@@ -1,276 +1,284 @@
 {
-  "keys": "/work/test/egg-example/config/config.default.js",
-  "middleware": "/work/test/egg-example/config/config.default.js",
+  "keys": "/work/traker/traker-server/config/config.default.js",
+  "middleware": "/work/traker/traker-server/config/config.default.js",
   "sequelize": {
-    "dialect": "/work/test/egg-example/config/config.default.js",
-    "username": "/work/test/egg-example/config/config.default.js",
-    "password": "/work/test/egg-example/config/config.default.js",
-    "database": "/work/test/egg-example/config/config.default.js",
-    "host": "/work/test/egg-example/config/config.default.js",
-    "port": "/work/test/egg-example/config/config.default.js"
+    "dialect": "/work/traker/traker-server/config/config.default.js",
+    "username": "/work/traker/traker-server/config/config.default.js",
+    "password": "/work/traker/traker-server/config/config.default.js",
+    "database": "/work/traker/traker-server/config/config.default.js",
+    "host": "/work/traker/traker-server/config/config.default.js",
+    "port": "/work/traker/traker-server/config/config.default.js"
   },
   "security": {
     "csrf": {
-      "enable": "/work/test/egg-example/config/config.default.js",
-      "useSession": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "ignoreJSON": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "cookieName": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "sessionName": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "headerName": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "bodyName": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "queryName": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/config/config.default.js",
+      "useSession": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "ignoreJSON": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "cookieName": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "sessionName": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "headerName": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "bodyName": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "queryName": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
-    "domainWhiteList": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-    "protocolWhiteList": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-    "defaultMiddleware": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
+    "domainWhiteList": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+    "protocolWhiteList": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+    "defaultMiddleware": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
     "xframe": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "value": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "value": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "hsts": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.local.js",
-      "maxAge": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "includeSubdomains": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.local.js",
+      "maxAge": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "includeSubdomains": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "dta": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "methodnoallow": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "noopen": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "nosniff": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "referrerPolicy": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "value": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "value": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "xssProtection": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "value": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "value": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "csp": {
-      "enable": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "policy": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "enable": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "policy": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     },
     "ssrf": {
-      "ipBlackList": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js",
-      "checkAddress": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+      "ipBlackList": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js",
+      "checkAddress": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     }
   },
   "session": {
-    "maxAge": "/work/test/egg-example/node_modules/.3.1.0@egg-session/config/config.default.js",
-    "key": "/work/test/egg-example/node_modules/.3.1.0@egg-session/config/config.default.js",
-    "httpOnly": "/work/test/egg-example/node_modules/.3.1.0@egg-session/config/config.default.js",
-    "encrypt": "/work/test/egg-example/node_modules/.3.1.0@egg-session/config/config.default.js"
+    "maxAge": "/work/traker/traker-server/node_modules/.3.1.0@egg-session/config/config.default.js",
+    "key": "/work/traker/traker-server/node_modules/.3.1.0@egg-session/config/config.default.js",
+    "httpOnly": "/work/traker/traker-server/node_modules/.3.1.0@egg-session/config/config.default.js",
+    "encrypt": "/work/traker/traker-server/node_modules/.3.1.0@egg-session/config/config.default.js"
   },
   "helper": {
-    "shtml": "/work/test/egg-example/node_modules/.2.4.0@egg-security/config/config.default.js"
+    "shtml": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
   },
   "jsonp": {
-    "limit": "/work/test/egg-example/node_modules/.2.0.0@egg-jsonp/config/config.default.js",
-    "callback": "/work/test/egg-example/node_modules/.2.0.0@egg-jsonp/config/config.default.js",
-    "csrf": "/work/test/egg-example/node_modules/.2.0.0@egg-jsonp/config/config.default.js"
+    "limit": "/work/traker/traker-server/node_modules/.2.0.0@egg-jsonp/config/config.default.js",
+    "callback": "/work/traker/traker-server/node_modules/.2.0.0@egg-jsonp/config/config.default.js",
+    "csrf": "/work/traker/traker-server/node_modules/.2.0.0@egg-jsonp/config/config.default.js"
   },
   "onerror": {
-    "errorPageUrl": "/work/test/egg-example/node_modules/.2.1.0@egg-onerror/config/config.default.js",
-    "appErrorFilter": "/work/test/egg-example/node_modules/.2.1.0@egg-onerror/config/config.default.js",
-    "templatePath": "/work/test/egg-example/node_modules/.2.1.0@egg-onerror/config/config.default.js"
+    "errorPageUrl": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror/config/config.default.js",
+    "appErrorFilter": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror/config/config.default.js",
+    "templatePath": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror/config/config.default.js"
   },
   "i18n": {
-    "defaultLocale": "/work/test/egg-example/node_modules/.2.0.0@egg-i18n/config/config.default.js",
-    "dirs": "/work/test/egg-example/node_modules/.2.0.0@egg-i18n/config/config.default.js",
-    "queryField": "/work/test/egg-example/node_modules/.2.0.0@egg-i18n/config/config.default.js",
-    "cookieField": "/work/test/egg-example/node_modules/.2.0.0@egg-i18n/config/config.default.js",
-    "cookieMaxAge": "/work/test/egg-example/node_modules/.2.0.0@egg-i18n/config/config.default.js"
+    "defaultLocale": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n/config/config.default.js",
+    "dirs": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n/config/config.default.js",
+    "queryField": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n/config/config.default.js",
+    "cookieField": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n/config/config.default.js"
   },
   "watcher": {
-    "type": "/work/test/egg-example/node_modules/.3.1.0@egg-watcher/config/config.local.js",
+    "type": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/config/config.local.js",
     "eventSources": {
-      "default": "/work/test/egg-example/node_modules/.3.1.0@egg-watcher/config/config.default.js",
-      "development": "/work/test/egg-example/node_modules/.3.1.0@egg-watcher/config/config.default.js"
+      "default": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/config/config.default.js",
+      "development": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/config/config.default.js"
     }
-  },
-  "multipart": {
-    "autoFields": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "defaultCharset": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "fieldNameSize": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "fieldSize": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "fields": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "fileSize": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "files": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "fileExtensions": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js",
-    "whitelist": "/work/test/egg-example/node_modules/.2.1.0@egg-multipart/config/config.default.js"
-  },
-  "development": {
-    "watchDirs": "/work/test/egg-example/node_modules/.2.4.1@egg-development/config/config.default.js",
-    "ignoreDirs": "/work/test/egg-example/node_modules/.2.4.1@egg-development/config/config.default.js",
-    "fastReady": "/work/test/egg-example/node_modules/.2.4.1@egg-development/config/config.default.js",
-    "reloadOnDebug": "/work/test/egg-example/node_modules/.2.4.1@egg-development/config/config.default.js",
-    "overrideDefault": "/work/test/egg-example/node_modules/.2.4.1@egg-development/config/config.default.js"
   },
   "customLogger": {
     "scheduleLogger": {
-      "consoleLevel": "/work/test/egg-example/node_modules/.3.4.0@egg-schedule/config/config.default.js",
-      "file": "/work/test/egg-example/node_modules/.3.4.0@egg-schedule/config/config.default.js"
+      "consoleLevel": "/work/traker/traker-server/node_modules/.3.4.0@egg-schedule/config/config.default.js",
+      "file": "/work/traker/traker-server/node_modules/.3.4.0@egg-schedule/config/config.default.js"
     }
   },
+  "multipart": {
+    "mode": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "autoFields": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "defaultCharset": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "fieldNameSize": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "fieldSize": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "fields": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "fileSize": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "files": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "fileExtensions": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "whitelist": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "tmpdir": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/work/traker/traker-server/node_modules/.2.4.1@egg-development/config/config.default.js",
+    "ignoreDirs": "/work/traker/traker-server/node_modules/.2.4.1@egg-development/config/config.default.js",
+    "fastReady": "/work/traker/traker-server/node_modules/.2.4.1@egg-development/config/config.default.js",
+    "reloadOnDebug": "/work/traker/traker-server/node_modules/.2.4.1@egg-development/config/config.default.js",
+    "overrideDefault": "/work/traker/traker-server/node_modules/.2.4.1@egg-development/config/config.default.js"
+  },
   "logrotator": {
-    "filesRotateByHour": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
-    "hourDelimiter": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
-    "filesRotateBySize": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
-    "maxFileSize": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
-    "maxFiles": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
-    "rotateDuration": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
-    "maxDays": "/work/test/egg-example/node_modules/.3.0.3@egg-logrotator/config/config.default.js"
+    "filesRotateByHour": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
+    "maxFileSize": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
+    "maxFiles": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
+    "rotateDuration": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js",
+    "maxDays": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator/config/config.default.js"
   },
   "static": {
-    "prefix": "/work/test/egg-example/node_modules/.2.1.1@egg-static/config/config.default.js",
-    "dir": "/work/test/egg-example/node_modules/.2.1.1@egg-static/config/config.default.js",
-    "dynamic": "/work/test/egg-example/node_modules/.2.1.1@egg-static/config/config.default.js",
-    "preload": "/work/test/egg-example/node_modules/.2.1.1@egg-static/config/config.default.js",
-    "buffer": "/work/test/egg-example/node_modules/.2.1.1@egg-static/config/config.default.js",
-    "maxFiles": "/work/test/egg-example/node_modules/.2.1.1@egg-static/config/config.default.js"
+    "prefix": "/work/traker/traker-server/node_modules/.2.1.1@egg-static/config/config.default.js",
+    "dir": "/work/traker/traker-server/node_modules/.2.1.1@egg-static/config/config.default.js",
+    "dynamic": "/work/traker/traker-server/node_modules/.2.1.1@egg-static/config/config.default.js",
+    "preload": "/work/traker/traker-server/node_modules/.2.1.1@egg-static/config/config.default.js",
+    "buffer": "/work/traker/traker-server/node_modules/.2.1.1@egg-static/config/config.default.js",
+    "maxFiles": "/work/traker/traker-server/node_modules/.2.1.1@egg-static/config/config.default.js"
   },
   "view": {
-    "root": "/work/test/egg-example/node_modules/.2.1.0@egg-view/config/config.default.js",
-    "cache": "/work/test/egg-example/node_modules/.2.1.0@egg-view/config/config.local.js",
-    "defaultExtension": "/work/test/egg-example/node_modules/.2.1.0@egg-view/config/config.default.js",
-    "defaultViewEngine": "/work/test/egg-example/node_modules/.2.1.0@egg-view/config/config.default.js",
-    "mapping": "/work/test/egg-example/node_modules/.2.1.0@egg-view/config/config.default.js"
+    "root": "/work/traker/traker-server/node_modules/.2.1.0@egg-view/config/config.default.js",
+    "cache": "/work/traker/traker-server/node_modules/.2.1.0@egg-view/config/config.local.js",
+    "defaultExtension": "/work/traker/traker-server/node_modules/.2.1.0@egg-view/config/config.default.js",
+    "defaultViewEngine": "/work/traker/traker-server/node_modules/.2.1.0@egg-view/config/config.default.js",
+    "mapping": "/work/traker/traker-server/node_modules/.2.1.0@egg-view/config/config.default.js"
   },
-  "env": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "name": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "proxy": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "protocolHeaders": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "ipHeaders": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "hostHeaders": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+  "env": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "name": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "proxy": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "protocolHeaders": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "ipHeaders": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "hostHeaders": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
   "pkg": {
-    "name": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "version": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "description": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "private": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+    "name": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "version": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "description": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "private": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
     "dependencies": {
-      "egg": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "egg-sequelize": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "egg-swagger-decorator": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "lodash": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "md5": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "mysql2": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "egg": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "egg-scripts": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "egg-sequelize": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "egg-swagger-decorator": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "lodash": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "md5": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "mysql2": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     },
     "devDependencies": {
-      "autod": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "babel-plugin-transform-decorators-legacy": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "babel-register": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "egg-bin": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "egg-mock": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "factory-girl": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "lodash": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "sequelize-cli": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "autod": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "babel-plugin-transform-decorators-legacy": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "babel-register": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "egg-bin": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "egg-mock": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "factory-girl": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "lodash": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "sequelize-cli": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     },
     "engines": {
-      "node": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "node": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     },
     "scripts": {
-      "dev": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "frp": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "test": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "cov": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "ci": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "autod": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "sequelize": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "dev": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "frp": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "test": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "cov": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "ci": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "autod": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "sequelize": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "start": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "stop": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     },
-    "author": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "license": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "author": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "license": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
-  "baseDir": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "HOME": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "rundir": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+  "baseDir": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "HOME": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "rundir": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
   "dump": {
-    "ignore": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "ignore": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "notFound": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "sitefile": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "middlewares": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "httpClient": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "bodyparser": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "notFound": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "sitefile": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "middlewares": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "httpClient": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
   "notfound": {
-    "pageUrl": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "pageUrl": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "/favicon.ico": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
   "bodyParser": {
-    "enable": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "encoding": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "formLimit": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "jsonLimit": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "strict": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+    "enable": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "encoding": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "formLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "jsonLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "strict": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
     "queryString": {
-      "arrayLimit": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "depth": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "parameterLimit": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "arrayLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "depth": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "parameterLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     }
   },
   "logger": {
-    "dir": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "encoding": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "env": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "level": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "consoleLevel": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "disableConsoleAfterReady": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "outputJSON": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "buffer": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "appLogName": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "coreLogName": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "agentLogName": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "errorLogName": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+    "dir": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "encoding": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "env": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "level": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "consoleLevel": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "disableConsoleAfterReady": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "outputJSON": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "buffer": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "appLogName": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "coreLogName": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "agentLogName": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "errorLogName": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
     "coreLogger": {
-      "consoleLevel": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.local.js"
+      "consoleLevel": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.local.js"
     },
-    "allowDebugAtProd": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "allowDebugAtProd": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
   "httpclient": {
-    "enableDNSCache": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "dnsCacheLookupInterval": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "dnsCacheMaxLength": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+    "enableDNSCache": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "dnsCacheMaxLength": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
     "request": {
-      "timeout": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "timeout": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     },
     "httpAgent": {
-      "keepAlive": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "freeSocketKeepAliveTimeout": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "maxSockets": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "maxFreeSockets": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "keepAlive": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "freeSocketKeepAliveTimeout": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "maxSockets": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "maxFreeSockets": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "freeSocketKeepAliveTimeout": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "maxSockets": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "maxFreeSockets": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "keepAlive": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "freeSocketKeepAliveTimeout": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "maxSockets": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "maxFreeSockets": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     }
   },
   "meta": {
-    "enable": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "logging": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "enable": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "logging": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
-  "coreMiddleware": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-  "workerStartTimeout": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
+  "coreMiddleware": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+  "workerStartTimeout": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
   "cluster": {
     "listen": {
-      "path": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "port": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-      "hostname": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+      "path": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "port": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "hostname": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
     }
   },
   "clusterClient": {
-    "maxWaitTime": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js",
-    "responseTimeout": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+    "maxWaitTime": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "responseTimeout": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
   },
-  "onClientError": "/work/test/egg-example/node_modules/.2.11.2@egg/config/config.default.js"
+  "onClientError": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
 }

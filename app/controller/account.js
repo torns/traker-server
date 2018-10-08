@@ -84,7 +84,7 @@ class AccountController extends Controller {
     const id = ctx.helper.parseInt(ctx.params.id);
     const response= await ctx.service.account.del(id);
     if(response.isSuccess()){
-      this.session=null;
+      ctx.session=null;
     }
     ctx.body=response
   }
@@ -144,7 +144,7 @@ class AccountController extends Controller {
    @description('退出用户')
    @group
   async logout() {
-    this.session = null;
+    this.ctx.session = null;
     this.ctx.body = this.ctx.response.ServerResponse.success('退出成功')
   }
 }
