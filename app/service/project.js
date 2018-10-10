@@ -5,7 +5,7 @@ class Project extends Service {
         super(ctx);
         this.session = ctx.session;
         this.ProjectModel = ctx.model.Project;
-        this.PageModel = ctx.model.Page;
+        this.EventModel = ctx.model.Event;
         this.ResponseCode = ctx.response.ResponseCode;
         this.ServerResponse = ctx.response.ServerResponse;
         this.Op = ctx.app.Sequelize.Op;
@@ -42,23 +42,8 @@ class Project extends Service {
         }
     }
 
-    async show({ page = 1, pageSize = 10, id = null, startDate = '1978-01-01 00:00:00', endDate = '1978-01-01 23:59:59' }) {
-        const pageList = await this.PageModel.findAndCountAll({ 
-            where: {
-                project_id: id,
-                visit_at: {
-                    [this.Op.between]: [startDate, endDate]
-                }
-            },
-            offset: (page - 1) * pageSize,
-            limit: pageSize
-        });
-
-
-
-    }
-
-
+    
+    
 }
 
 module.exports = Project;
