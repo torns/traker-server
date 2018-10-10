@@ -23,7 +23,7 @@ class Project extends Service {
     
     async list({ page = 1, pageSize = 10, creator, role = 0}) {
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'project_id', 'name', 'name_cn'],
+            attributes: ['id', 'name', 'name_cn'],
             // where: { creator: role === 1 ? null : creator  },
             offset: (page - 1) * pageSize,
             limit: pageSize

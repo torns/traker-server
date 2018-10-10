@@ -17,6 +17,15 @@ module.exports = appInfo => {
     port: 3306,
   };
 
+  config.redis = {
+    client: {
+      port: 6379,
+      host: '97.64.36.18',
+      db: 1,
+      password: '123456'
+    }
+  };
+
   config.security = {
     csrf: {
       enable: false,

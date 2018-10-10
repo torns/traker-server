@@ -6,7 +6,7 @@ const group = tags(['账号管理']);
 
 const accountInfoSchema = {
   name: { type: 'string', required: true },
-  moblie: { type: 'string', required: true},
+  mobile: { type: 'string', required: true},
 };
 
 
@@ -58,7 +58,7 @@ class AccountController extends Controller {
   })
   @body({
     name: { type: 'string', required: true },
-    moblie: { type: 'string', required: true},
+    mobile: { type: 'string', required: true},
   })
   @responses({200:accountInfoSchema})
   async update() {
@@ -99,12 +99,16 @@ class AccountController extends Controller {
    @group
    @body({
      name: { type: 'string', required: true },
-     moblie: { type: 'string', required: true},
+     mobile: { type: 'string', required: true},
      password: { type: 'string', required: true},
    })
    @responses({200:accountInfoSchema})
   async register() {
     const ctx = this.ctx;
+    const { name, mobile, password } = ctx.request.body;
+    if (!ctx.helper.isNotEmpty(name) || !ctx.helper.isNotEmpty(password) || !ctx.helper.isMobile(mobile)) {
+      return ctx.body = ctx.response.ServerResponse.error('参数不合法');
+    }
     const account = await ctx.service.account.register(ctx.request.body);
     ctx.body = account;
   }
@@ -118,14 +122,14 @@ class AccountController extends Controller {
    @description('登录用户')
    @group
    @body({
-     moblie: { type: 'string', required: true},
+     mobile: { type: 'string', required: true},
      password: { type: 'string', required: true},
    })
    @responses({200:accountInfoSchema})
   async login() {
-    const { moblie, password } = this.ctx.request.body;
+    const { mobile, password } = this.ctx.request.body;
 
-    const response = await this.service.account.login(moblie, password);
+    const response = await this.service.account.login(mobile, password);
 
     if (response.isSuccess()) {
       this.session.currentUser = response.getData();

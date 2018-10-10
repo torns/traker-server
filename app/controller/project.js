@@ -26,12 +26,11 @@ class ProjectController extends Controller {
     async create() {
         const ctx = this.ctx;
         const { name, name_cn = name } = ctx.request.body;
-        const project_id = ctx.helper.hashCode(name + Date.now().toString());
 
         if (!ctx.helper.isNotEmpty(name)) {
            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim(), project_id });
+        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() });
     }
 
     async destroy() {

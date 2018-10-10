@@ -1,15 +1,14 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { STRING, INTEGER, DATE, UUID } = app.Sequelize;
 
   const Project = app.model.define('project', {
     id: {
-      type: INTEGER,
+      type: UUID,
       primaryKey: true,
-      autoIncrement: true,
+      unique: true
     },
-    project_id: INTEGER, // 项目标识
     name: {
       type: STRING(30),
       allowNull: false

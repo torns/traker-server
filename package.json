@@ -5,8 +5,10 @@
   "private": true,
   "dependencies": {
     "egg": "^2.11.2",
+    "egg-redis": "^2.0.0",
     "egg-scripts": "^2.9.1",
     "egg-sequelize": "^4.1.0",
+    "egg-session-redis": "^2.1.0",
     "egg-swagger-decorator": "^0.1.1",
     "lodash": "^4.17.11",
     "md5": "^2.2.1",

@@ -30,8 +30,8 @@ class Account extends Service {
           ? this.ServerResponse.error('用户名已存在')
           : this.ServerResponse.success('用户名不存在');
       }
-      if ('moblie' === type) {
-        return await this._checkExistByField('moblie', value)
+      if ('mobile' === type) {
+        return await this._checkExistByField('mobile', value)
           ? this.ServerResponse.error('手机号已存在')
           : this.ServerResponse.success('手机号不存在');
       }
@@ -41,7 +41,7 @@ class Account extends Service {
 
   async list({ page = 1, pageSize = 10 }) {
     const response=await this.AccountModel.findAndCountAll({
-      attributes: ['id', 'name','moblie'],
+      attributes: ['id', 'name','mobile'],
       offset:(page-1)*pageSize,
       limit:pageSize,
       order: [[ 'id', 'desc' ]],
@@ -85,15 +85,15 @@ class Account extends Service {
 
   async register(account) {
     try{
-      //验证用户名
+      // 验证用户名
       const validNameResponse=await this.checkValid("name",account.name)
       if (!validNameResponse.isSuccess()) {
         return validNameResponse
       }
       //验证手机号
-      const validMoblieResponse=await this.checkValid("moblie",account.moblie)
-      if (!validMoblieResponse.isSuccess()) {
-        return validMoblieResponse
+      const validMobileResponse=await this.checkValid("mobile",account.mobile)
+      if (!validMobileResponse.isSuccess()) {
+        return validMobileResponse
       }
 
       account.password=md5(account.password)
@@ -111,17 +111,17 @@ class Account extends Service {
 
   }
 
-  async login(moblie,password) {
+  async login(mobile,password) {
     try{
-      const validMoblieResponse=await this.checkValid("moblie",moblie)
-      if (validMoblieResponse.isSuccess()) {
+      const validMobileResponse=await this.checkValid("mobile",mobile)
+      if (validMobileResponse.isSuccess()) {
         return this.ServerResponse.error('账号不存在')
       }
 
     const account = await this.AccountModel.findOne({
-        attributes: [ 'id', 'name', 'moblie' ],
+        attributes: [ 'id', 'name', 'mobile' ],
         where: {
-          moblie,
+          mobile,
           password: md5(password),
         },
       });
