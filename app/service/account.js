@@ -96,9 +96,7 @@ class Account extends Service {
       if (!validmoblieResponse.isSuccess()) {
         return validmoblieResponse
       }
-        console.log(validmoblieResponse,999999)
       account.password=md5(account.password)
-      console.log(account,9999)
       account=await this.AccountModel.create(account);
 
       if(!account){
@@ -109,7 +107,6 @@ class Account extends Service {
       _.unset(account, 'password');
       return this.ServerResponse.success("注册成功",account)
     }catch(e){
-      console.log(e)
       return this.ServerResponse.error('注册失败')
     }
 
@@ -129,7 +126,6 @@ class Account extends Service {
           password: md5(password),
         },
       });
-
       if(!account){
         return this.ServerResponse.error('密码错误')
       }

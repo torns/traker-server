@@ -29,8 +29,8 @@ module.exports = {
   isNotEmpty(str) {
     return !!str && !(/^\s*$/g.test(str));
   },
-  ismoblie(str) {
-    return !!str && /^1\d{10}$/.test(str);
+  isMoblie(str) {
+    return !!str && /^1\d{10}$/g.test(str);
   }
   
 };

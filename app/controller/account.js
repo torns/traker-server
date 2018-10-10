@@ -106,7 +106,7 @@ class AccountController extends Controller {
   async register() {
     const ctx = this.ctx;
     const { name, moblie, password } = ctx.request.body;
-    if (!ctx.helper.isNotEmpty(name) || !ctx.helper.isNotEmpty(password) || !ctx.helper.ismoblie(moblie)) {
+    if (!ctx.helper.isNotEmpty(name) || !ctx.helper.isNotEmpty(password) || !ctx.helper.isMoblie(moblie)) {
       return ctx.body = ctx.response.ServerResponse.error('参数不合法');
     }
     const account = await ctx.service.account.register(ctx.request.body);
@@ -132,6 +132,7 @@ class AccountController extends Controller {
     const response = await this.service.account.login(moblie, password);
 
     if (response.isSuccess()) {
+      this.app.redis.set('currentUser', response.getData());
       this.session.currentUser = response.getData();
     }
 

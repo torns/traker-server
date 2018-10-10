@@ -42,7 +42,7 @@ class Project extends Service {
         if (project) {
             return this.ServerResponse.error('项目已经存在', this.ResponseCode.ERROR_ARGUMENT);
         } else {
-            project = await this.ProjectModel.create({ ...data, creator: this.ctx.session.name });
+            project = await this.ProjectModel.create({ ...data, creator: this.ctx.session.currentUser.name });
         }
         if (project) {
             return this.ServerResponse.success('创建成功', project);
