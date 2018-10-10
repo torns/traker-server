@@ -43,7 +43,7 @@ class Project extends Service {
     }
 
     async show({ page = 1, pageSize = 10, id = null, startDate = '1978-01-01 00:00:00', endDate = '1978-01-01 23:59:59' }) {
-        const page = await this.PageModel.findAndCountAll({ 
+        const pageList = await this.PageModel.findAndCountAll({ 
             where: {
                 project_id: id,
                 visit_at: {
@@ -53,12 +53,12 @@ class Project extends Service {
             offset: (page - 1) * pageSize,
             limit: pageSize
         });
-         
-        
+
+
 
     }
 
-    
+
 }
 
 module.exports = Project;

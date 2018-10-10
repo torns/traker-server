@@ -17,6 +17,6 @@ class PageController extends Controller {
         const { data = [] } = ctx.request.body;
         ctx.body = await ctx.service.findOrCreate(data);
     }
-    
-    
+
+
 }

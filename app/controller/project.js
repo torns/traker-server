@@ -60,6 +60,6 @@ class ProjectController extends Controller {
 
     async detail() {
         const ctx = this.ctx;
-        const { id, pageId } = ctx.query; 
+        const { id, pageId } = ctx.query;
     }
 }
