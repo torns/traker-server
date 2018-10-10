@@ -31,6 +31,7 @@ module.exports = {
   },
   isMoblie(str) {
     return !!str && /^1\d{10}$/g.test(str);
+
   }
   
 };

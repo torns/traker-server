@@ -41,9 +41,7 @@ module.exports = appInfo => {
     }
   };
 
-  exports.static = {
-     maxAge: 31536000,
-  };
+
 
 
 
