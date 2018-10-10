@@ -181,11 +181,13 @@
       "egg-swagger-decorator": "/study/traker-server/node_modules/egg/config/config.default.js",
       "lodash": "/study/traker-server/node_modules/egg/config/config.default.js",
       "md5": "/study/traker-server/node_modules/egg/config/config.default.js",
+      "moment": "/study/traker-server/node_modules/egg/config/config.default.js",
       "mysql2": "/study/traker-server/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
       "autod": "/study/traker-server/node_modules/egg/config/config.default.js",
       "babel-plugin-transform-decorators-legacy": "/study/traker-server/node_modules/egg/config/config.default.js",
+      "babel-plugin-transform-object-rest-spread": "/study/traker-server/node_modules/egg/config/config.default.js",
       "babel-register": "/study/traker-server/node_modules/egg/config/config.default.js",
       "egg-bin": "/study/traker-server/node_modules/egg/config/config.default.js",
       "egg-mock": "/study/traker-server/node_modules/egg/config/config.default.js",

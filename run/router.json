@@ -137,13 +137,25 @@
     ]
   },
   {
-    "name": null,
+    "name": "project",
     "methods": [
-      "POST"
+      "PATCH",
+      "PUT"
     ],
-    "paramNames": [],
-    "path": "/project/create",
-    "regexp": "/^\\/project\\/create(?:\\/(?=$))?$/",
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/project/:id",
+    "regexp": "/^\\/project\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
