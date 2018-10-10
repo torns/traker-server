@@ -25,6 +25,9 @@ module.exports = {
     return str.replace(/([A-Z])/g, function(match, $1) {
       return '-' + $1.toLowerCase();
     });
+  },
+  isNotEmpty(str) {
+    return !!str && !(/^\s*$/g.test(str));
   }
   
 };

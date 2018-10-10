@@ -30,3 +30,5 @@ class PageController extends Controller {
 
     
 }
+
+module.exports = PageController;

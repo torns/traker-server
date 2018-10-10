@@ -19,6 +19,7 @@ class Project extends Service {
         });
         return !!data;
     }
+
     
     async list({ page = 1, pageSize = 10, creator = '', role = 0}) {
         const result = await this.ProjectModel.findAndCountAll({
@@ -35,17 +36,15 @@ class Project extends Service {
 
 
     async create(data) {
-        const { name, name_cn } = data;
-        let key = '';
+        const { name } = data;
         let project = await this._checkExistByField('name', name);
         if (project) {
             return this.ServerResponse.error('项目已经存在', this.ResponseCode.ERROR_ARGUMENT);
         } else {
-            project = await this.ProjectModel.create({ name, name_cn, creator: this.ctx.session.name });
-            key = this.ctx.helper.hashCode(name);
+            project = await this.ProjectModel.create({ ...data, creator: this.ctx.session.name });
         }
         if (project) {
-            return this.ServerResponse.success('创建成功', key);
+            return this.ServerResponse.success('创建成功', project);
         } else {
             return this.ServerResponse.error('创建失败');
         }
@@ -55,6 +54,16 @@ class Project extends Service {
         const project = await this.ProjectModel.findById(id);
         if (project) {
             return this.ServerResponse.success('删除成功');
+        } else {
+            return this.ServerResponse.error('项目不存在');
+        }
+    }
+
+    async update({id, name}) {
+        const project = await this._checkExistByField('id', id);
+        if (project) {
+            await project.update({name});
+            return this.ServerResponse.success('更新成功');
         } else {
             return this.ServerResponse.error('项目不存在');
         }

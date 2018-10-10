@@ -4,7 +4,6 @@ module.exports = app => {
     
     app.resources('project', '/project', app.controller.project);
 
-    app.router.post(prefix+'/create', app.controller.project.create);
   
   };
   

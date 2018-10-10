@@ -16,7 +16,7 @@ module.exports = app => {
     name: STRING(30), // 事件名称
     project_id: INTEGER, // 所属项目
     page_id: INTEGER, 
-    at: DATE,
+    at: STRING(30),
     count: INTEGER, // 触发次数
     time: INTEGER, // 触发时长
     entry_count: INTEGER, // 入口页次数
