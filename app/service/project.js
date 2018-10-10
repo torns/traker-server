@@ -17,18 +17,19 @@ class Project extends Service {
           attributes: [ field ],
           where: { [field]: value },
         });
-        return !!data;
+        return data;
     }
 
     
-    async list({ page = 1, pageSize = 10, creator = '', role = 0}) {
+    async list({ page = 1, pageSize = 10, creator, role = 0}) {
         const result = await this.ProjectModel.findAndCountAll({
-            where: { creator: role === 1 ? null : creator  },
+            attributes: ['id', 'project_id', 'name', 'name_cn'],
+            // where: { creator: role === 1 ? null : creator  },
             offset: (page - 1) * pageSize,
             limit: pageSize
         });
         if (result) {
-            return this.ServerResponse.success('查询成功', result);
+            return this.ServerResponse.success('查询成功', {totalCount: result.count, list: result.rows });
         } else {
             return this.ServerResponse.error('查询失败');
         }
@@ -60,10 +61,10 @@ class Project extends Service {
         }
     }
 
-    async update({id, name}) {
+    async update({id = -99, name_cn = ''}) {
         const project = await this._checkExistByField('id', id);
         if (project) {
-            await project.update({name});
+            await project.update({name_cn});
             return this.ServerResponse.success('更新成功');
         } else {
             return this.ServerResponse.error('项目不存在');

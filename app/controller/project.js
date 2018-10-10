@@ -12,14 +12,15 @@ class ProjectController extends Controller {
     
     async index() {
         const ctx = this.ctx;
-        const { name, query, role } = ctx.session;
-        const querys = {
+        const { name, role } = ctx.session;
+        const { page = 1, pageSize = 10 } = ctx.query;
+        const query = {
             creator: name,
             role,
-            page: ctx.helper.parseInt(query.page),
-            pageSize: ctx.helper.parseInt(query.pageSize)
+            page: ctx.helper.parseInt(page),
+            pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.list(querys);
+        ctx.body = await ctx.service.project.list(query);
     }
 
     async create() {
@@ -40,13 +41,14 @@ class ProjectController extends Controller {
     }
 
     async update() {
+        // 只能修改中文标识
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
-        const { name } = ctx.request.body;
-        if (!ctx.helper.isNotEmpty(name)) {
+        const { name_cn } = ctx.request.body;
+        if (!ctx.helper.isNotEmpty(name_cn)) {
            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({id, name: name.trim()});
+        ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()});
     }
 
     
