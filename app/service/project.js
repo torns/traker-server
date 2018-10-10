@@ -50,9 +50,10 @@ class Project extends Service {
         }
     }
 
-    async destory(id) {
+    async destroy(id) {
         const project = await this.ProjectModel.findById(id);
         if (project) {
+            await project.destroy()
             return this.ServerResponse.success('删除成功');
         } else {
             return this.ServerResponse.error('项目不存在');

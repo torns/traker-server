@@ -33,10 +33,10 @@ class ProjectController extends Controller {
         ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim(), project_id });
     }
 
-    async destory() {
+    async destroy() {
         const ctx = this.ctx;
-        const { id } = ctx.params;
-        ctx.body = await ctx.service.project.destory(id);
+        const id = ctx.helper.parseInt(ctx.params.id);
+        ctx.body = await ctx.service.project.destroy(id);
     }
 
     async update() {
