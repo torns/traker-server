@@ -29,7 +29,7 @@ module.exports = {
   isNotEmpty(str) {
     return !!str && !(/^\s*$/g.test(str));
   },
-  ismoblie(str) {
+  ismobile(str) {
     return !!str && /^1\d{10}$/.test(str);
   }
   
