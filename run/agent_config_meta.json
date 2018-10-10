@@ -61,6 +61,22 @@
       "checkAddress": "/study/traker-server/node_modules/egg-security/config/config.default.js"
     }
   },
+  "bodyParser": {
+    "formLimit": "/study/traker-server/config/config.default.js",
+    "jsonLimit": "/study/traker-server/config/config.default.js",
+    "enableTypes": "/study/traker-server/config/config.default.js",
+    "extendTypes": {
+      "text": "/study/traker-server/config/config.default.js"
+    },
+    "enable": "/study/traker-server/node_modules/egg/config/config.default.js",
+    "encoding": "/study/traker-server/node_modules/egg/config/config.default.js",
+    "strict": "/study/traker-server/node_modules/egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/study/traker-server/node_modules/egg/config/config.default.js",
+      "depth": "/study/traker-server/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/study/traker-server/node_modules/egg/config/config.default.js"
+    }
+  },
   "session": {
     "maxAge": "/study/traker-server/node_modules/egg-session/config/config.default.js",
     "key": "/study/traker-server/node_modules/egg-session/config/config.default.js",
@@ -212,18 +228,6 @@
   },
   "siteFile": {
     "/favicon.ico": "/study/traker-server/node_modules/egg/config/config.default.js"
-  },
-  "bodyParser": {
-    "enable": "/study/traker-server/node_modules/egg/config/config.default.js",
-    "encoding": "/study/traker-server/node_modules/egg/config/config.default.js",
-    "formLimit": "/study/traker-server/node_modules/egg/config/config.default.js",
-    "jsonLimit": "/study/traker-server/node_modules/egg/config/config.default.js",
-    "strict": "/study/traker-server/node_modules/egg/config/config.default.js",
-    "queryString": {
-      "arrayLimit": "/study/traker-server/node_modules/egg/config/config.default.js",
-      "depth": "/study/traker-server/node_modules/egg/config/config.default.js",
-      "parameterLimit": "/study/traker-server/node_modules/egg/config/config.default.js"
-    }
   },
   "logger": {
     "dir": "/study/traker-server/node_modules/egg/config/config.default.js",
