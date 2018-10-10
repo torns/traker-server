@@ -9,6 +9,7 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
+    project_id: INTEGER,
     name: STRING(30), // 英文标识，必须唯一
     name_cn: STRING(30), // 中文标识
     creator: STRING(30),
