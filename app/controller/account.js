@@ -6,7 +6,7 @@ const group = tags(['账号管理']);
 
 const accountInfoSchema = {
   name: { type: 'string', required: true },
-  mobile: { type: 'string', required: true},
+  moblie: { type: 'string', required: true},
 };
 
 
@@ -58,7 +58,7 @@ class AccountController extends Controller {
   })
   @body({
     name: { type: 'string', required: true },
-    mobile: { type: 'string', required: true},
+    moblie: { type: 'string', required: true},
   })
   @responses({200:accountInfoSchema})
   async update() {
@@ -99,14 +99,14 @@ class AccountController extends Controller {
    @group
    @body({
      name: { type: 'string', required: true },
-     mobile: { type: 'string', required: true},
+     moblie: { type: 'string', required: true},
      password: { type: 'string', required: true},
    })
    @responses({200:accountInfoSchema})
   async register() {
     const ctx = this.ctx;
-    const { name, mobile, password } = ctx.request.body;
-    if (!ctx.helper.isNotEmpty(name) || !ctx.helper.isNotEmpty(password) || !ctx.helper.isMobile(mobile)) {
+    const { name, moblie, password } = ctx.request.body;
+    if (!ctx.helper.isNotEmpty(name) || !ctx.helper.isNotEmpty(password) || !ctx.helper.ismoblie(moblie)) {
       return ctx.body = ctx.response.ServerResponse.error('参数不合法');
     }
     const account = await ctx.service.account.register(ctx.request.body);
@@ -122,14 +122,14 @@ class AccountController extends Controller {
    @description('登录用户')
    @group
    @body({
-     mobile: { type: 'string', required: true},
+     moblie: { type: 'string', required: true},
      password: { type: 'string', required: true},
    })
    @responses({200:accountInfoSchema})
   async login() {
-    const { mobile, password } = this.ctx.request.body;
+    const { moblie, password } = this.ctx.request.body;
 
-    const response = await this.service.account.login(mobile, password);
+    const response = await this.service.account.login(moblie, password);
 
     if (response.isSuccess()) {
       this.session.currentUser = response.getData();

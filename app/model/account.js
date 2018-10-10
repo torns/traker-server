@@ -10,7 +10,7 @@ module.exports = app => {
       autoIncrement: true,
     },
     name: STRING(30),
-    mobile: STRING(40),
+    moblie: STRING(40),
     password:STRING(100),
     created_at: DATE,
     updated_at: DATE,
