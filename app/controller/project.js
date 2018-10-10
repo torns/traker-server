@@ -24,8 +24,8 @@ class ProjectController extends Controller {
 
     async create() {
         const ctx = this.ctx;
-        const { name } = ctx.request.body;
-        ctx.body = await ctx.service.project.create({ name });
+        const { name, name_cn } = ctx.request.body;
+        ctx.body = await ctx.service.project.create({ name, name_cn });
     }
 
     async destory() {
@@ -36,3 +36,5 @@ class ProjectController extends Controller {
 
     
 }
+
+module.exports = ProjectController;
