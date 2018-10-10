@@ -73,7 +73,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "/study/traker-server/node_modules/egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -85,14 +85,14 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/lib/event-sources/default",
-        "development": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher/lib/event-sources/development"
+        "default": "/study/traker-server/node_modules/egg-watcher/lib/event-sources/default",
+        "development": "/study/traker-server/node_modules/egg-watcher/lib/event-sources/development"
       }
     },
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "/work/traker/traker-server/logs/traker-server/egg-schedule.log"
+        "file": "/study/traker-server/logs/traker-server/egg-schedule.log"
       }
     },
     "multipart": {
@@ -106,7 +106,7 @@
       "files": 10,
       "fileExtensions": [],
       "whitelist": null,
-      "tmpdir": "/var/folders/q1/0468pp3n7bs3jzns42n_ww040000gn/T/egg-multipart-tmp/traker-server",
+      "tmpdir": "/var/folders/hm/j3sp9bn53d11wtmny7g15_c00000gn/T/egg-multipart-tmp/traker-server",
       "cleanSchedule": {
         "cron": "0 30 4 * * *"
       }
@@ -129,14 +129,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "/work/traker/traker-server/app/public",
+      "dir": "/study/traker-server/app/public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "/work/traker/traker-server/app/view",
+      "root": "/study/traker-server/app/view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -198,9 +198,9 @@
       "author": "Qi Yu <njuyuqi@gmail.coom>",
       "license": "MIT"
     },
-    "baseDir": "/work/traker/traker-server",
-    "HOME": "/Users/ks",
-    "rundir": "/work/traker/traker-server/run",
+    "baseDir": "/study/traker-server",
+    "HOME": "/Users/liudeng",
+    "rundir": "/study/traker-server/run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -241,7 +241,7 @@
       }
     },
     "logger": {
-      "dir": "/work/traker/traker-server/logs/traker-server",
+      "dir": "/study/traker-server/logs/traker-server",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -316,8 +316,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.3.1.0@egg-session",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -329,8 +329,8 @@
         "session"
       ],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.4.0@egg-security",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-security",
       "version": "2.4.0"
     },
     "jsonp": {
@@ -342,8 +342,8 @@
         "security"
       ],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.0.0@egg-jsonp",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -355,8 +355,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.1.0@egg-onerror",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -366,8 +366,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.0.0@egg-i18n",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -377,8 +377,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.3.1.0@egg-watcher",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -388,8 +388,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.3.4.0@egg-schedule",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-schedule",
       "version": "3.4.0"
     },
     "multipart": {
@@ -401,8 +401,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.2.1@egg-multipart",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-multipart",
       "version": "2.2.1"
     },
     "development": {
@@ -416,8 +416,8 @@
       "env": [
         "local"
       ],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.4.1@egg-development",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-development",
       "version": "2.4.1"
     },
     "logrotator": {
@@ -429,8 +429,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.3.0.3@egg-logrotator",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-logrotator",
       "version": "3.0.3"
     },
     "static": {
@@ -440,8 +440,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.1.1@egg-static",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-static",
       "version": "2.1.1"
     },
     "view": {
@@ -451,8 +451,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.2.1.0@egg-view",
+      "from": "/study/traker-server/node_modules/egg/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-view",
       "version": "2.1.0"
     },
     "sequelize": {
@@ -462,8 +462,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/work/traker/traker-server/config/plugin.js",
-      "path": "/work/traker/traker-server/node_modules/.4.1.0@egg-sequelize",
+      "from": "/study/traker-server/config/plugin.js",
+      "path": "/study/traker-server/node_modules/egg-sequelize",
       "version": "4.1.0"
     }
   }

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE, JSON } = app.Sequelize;
+  const { STRING, INTEGER, DATE } = app.Sequelize;
 
   const Event = app.model.define('event', {
     id: {
@@ -21,7 +21,6 @@ module.exports = app => {
     time: INTEGER, // 触发时长
     entry_count: INTEGER, // 入口页次数
     exit_count: INTEGER, // 退出页次数
-    properties: JSON
   });
 
   // Event.prototype.associate = function() {
