@@ -12,11 +12,23 @@ class PageController extends Controller {
         this.session = ctx.session;
     }
 
+    async index() {
+
+    }
+
     async findOrCreate() {
         const ctx = this.ctx;
         const { data = [] } = ctx.request.body;
         ctx.body = await ctx.service.findOrCreate(data);
     }
     
+
+    async detail() {
+        const ctx = this.ctx;
+        const { id, pageId } = ctx.query; 
+    }
+
+    
+
     
 }

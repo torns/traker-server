@@ -15,6 +15,16 @@ module.exports = {
       hash = hash & hash;
     }
     return hash;
+  },
+  camelCase(str) {
+    return str.replace(/-([a-z])/g, function(match, $1) {
+      return $1.toUpperCase();
+    })
+  },
+  underline(str) {
+    return str.replace(/([A-Z])/g, function(match, $1) {
+      return '-' + $1.toLowerCase();
+    });
   }
   
 };
