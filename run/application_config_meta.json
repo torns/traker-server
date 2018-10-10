@@ -61,6 +61,22 @@
       "checkAddress": "/work/traker/traker-server/node_modules/.2.4.0@egg-security/config/config.default.js"
     }
   },
+  "bodyParser": {
+    "formLimit": "/work/traker/traker-server/config/config.default.js",
+    "jsonLimit": "/work/traker/traker-server/config/config.default.js",
+    "enableTypes": "/work/traker/traker-server/config/config.default.js",
+    "extendTypes": {
+      "text": "/work/traker/traker-server/config/config.default.js"
+    },
+    "enable": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "encoding": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "strict": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "depth": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
+      "parameterLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
+    }
+  },
   "session": {
     "maxAge": "/work/traker/traker-server/node_modules/.3.1.0@egg-session/config/config.default.js",
     "key": "/work/traker/traker-server/node_modules/.3.1.0@egg-session/config/config.default.js",
@@ -212,18 +228,6 @@
   },
   "siteFile": {
     "/favicon.ico": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
-  },
-  "bodyParser": {
-    "enable": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-    "encoding": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-    "formLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-    "jsonLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-    "strict": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-    "queryString": {
-      "arrayLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-      "depth": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",
-      "parameterLimit": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js"
-    }
   },
   "logger": {
     "dir": "/work/traker/traker-server/node_modules/.2.11.2@egg/config/config.default.js",

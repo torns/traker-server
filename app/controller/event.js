@@ -28,11 +28,17 @@ class EventController extends Controller {
   @responses({ 200: {description:'OK'}})
   async track() {
     const ctx = this.ctx;
-    console.log(ctx)
-    ctx.body = await ctx.service.event.list();
+    const body=ctx.request.body;
+    let data=null;
+
+    if(ctx.method==='GET'){
+      data=ctx.query.data
+    }else{
+      data=body
+    }
+    data=JSON.parse(Buffer.from(data,'base64').toString())
+    ctx.body =await ctx.service.event.track(data);
   }
-
-
 }
 
 module.exports = EventController;

@@ -89,6 +89,31 @@
   {
     "name": null,
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/event/track.gif",
+    "regexp": "/^\\/event\\/track\\.gif(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/event/track.gif",
+    "regexp": "/^\\/event\\/track\\.gif(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "HEAD",
       "GET"
     ],
@@ -183,6 +208,20 @@
     "paramNames": [],
     "path": "/account/logout",
     "regexp": "/^\\/account\\/logout(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/event",
+    "regexp": "/^\\/event(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
       "wrappedController"
@@ -311,6 +350,20 @@
     "paramNames": [],
     "path": "/account/logout",
     "regexp": "/^\\/account\\/logout(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/event",
+    "regexp": "/^\\/event(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
       "wrappedController"

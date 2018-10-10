@@ -250,13 +250,24 @@
     "bodyParser": {
       "enable": true,
       "encoding": "utf8",
-      "formLimit": "100kb",
-      "jsonLimit": "100kb",
+      "formLimit": "1000kb",
+      "jsonLimit": "1000kb",
       "strict": true,
       "queryString": {
         "arrayLimit": 100,
         "depth": 5,
         "parameterLimit": 1000
+      },
+      "enableTypes": [
+        "json",
+        "form",
+        "text"
+      ],
+      "extendTypes": {
+        "text": [
+          "text/xml",
+          "application/xml"
+        ]
       },
       "returnRawBody": true
     },

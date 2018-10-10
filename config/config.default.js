@@ -23,9 +23,20 @@ module.exports = appInfo => {
     },
   };
 
+  config.bodyParser={
+    formLimit: '1000kb',
+    jsonLimit: '1000kb',
+    enableTypes: ['json', 'form', 'text'],
+    extendTypes: {
+      text: ['text/xml', 'application/xml'],
+    }
+  };
+
   exports.static = {
      maxAge: 31536000,
   };
+
+
 
   return config;
 };
