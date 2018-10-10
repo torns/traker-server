@@ -26,10 +26,11 @@ class ProjectController extends Controller {
         const ctx = this.ctx;
         const { name, name_cn = name } = ctx.request.body;
         const project_id = ctx.helper.hashCode(name + Date.now().toString());
+
         if (!ctx.helper.isNotEmpty(name)) {
-            ctx.body = ctx.response.ServerResponse.error('参数不合法');
+           return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.create({ name: trim(name), name_cn: trim(name_cn), project_id });
+        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim(), project_id });
     }
 
     async destory() {
@@ -43,9 +44,9 @@ class ProjectController extends Controller {
         const id = ctx.helper.parseInt(ctx.params.id);
         const { name } = ctx.request.body;
         if (!ctx.helper.isNotEmpty(name)) {
-            ctx.body = ctx.response.ServerResponse.error('参数不合法');
+           return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({id, name: trim(name)});
+        ctx.body = await ctx.service.project.update({id, name: name.trim()});
     }
 
     
