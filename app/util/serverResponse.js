@@ -22,7 +22,7 @@ module.exports = class ServerResponse {
     return this.msg;
   }
 
-  static success(msg="", data={}) {
+  static success(msg="", data={}, SUCCESS) {
     return new ServerResponse(SUCCESS, msg, data);
   }
   static error(errorMsg="",errorCode=ERROR) {

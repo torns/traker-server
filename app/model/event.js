@@ -9,14 +9,18 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
+    created_at: DATE, 
+    updated_at: DATE,
     user: INTEGER, // 用户标识
     type: STRING(30), // 事件类型
     name: STRING(30), // 事件名称
     project_id: INTEGER, // 所属项目
-    created_at: DATE, // 触发日期
-    updated_at: DATE,
-    action_count: INTEGER, // 触发次数
-    action_time: INTEGER, // 触发时长
+    page_id: INTEGER, 
+    at: DATE,
+    count: INTEGER, // 触发次数
+    time: INTEGER, // 触发时长
+    entry_count: INTEGER, // 入口页次数
+    exit_count: INTEGER, // 退出页次数
     properties: JSON
   });
 
