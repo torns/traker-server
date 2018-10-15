@@ -10,7 +10,7 @@ module.exports = app => {
       autoIncrement: true,
     },
     //埋点信息
-    userId: {type:INTEGER,field:'user_id'},
+
     actionType: {type:STRING(30),field:'action_type'},
     eventName: {type:STRING(30),field:'event_name'},
     trackId: {type:STRING(100),field:'track_id'},
@@ -44,6 +44,7 @@ module.exports = app => {
 
     //client
     ua: STRING(100),
+    userId: {type:INTEGER,field:'user_id'},
     clientWidth:{ type:INTEGER,field:'client_width'},
     clientHeight: {type:INTEGER,field:'client_height'},
     title: STRING(100),
