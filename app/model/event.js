@@ -11,14 +11,17 @@ module.exports = app => {
     },
     created_at: DATE, 
     updated_at: DATE,
-    user: INTEGER, // 用户标识
+    user_id: INTEGER, // 用户标识
     type: STRING(30), // 事件类型
     name: STRING(30), // 事件名称
     project_id: INTEGER, // 所属项目
     page_id: INTEGER, 
-    at: STRING(30),
-    count: INTEGER, // 触发次数
-    time: INTEGER, // 触发时长
+    track_id: INTEGER,
+    start_time: DATE,
+    end_time: DATE,
+    visit_times: INTEGER, // 触发时长
+    invalid_time: INTEGER,
+    url: STRING(100),
     entry_count: INTEGER, // 入口页次数
     exit_count: INTEGER, // 退出页次数
   });

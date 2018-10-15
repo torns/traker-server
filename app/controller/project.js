@@ -12,7 +12,7 @@ class ProjectController extends Controller {
     
     async index() {
         const ctx = this.ctx;
-        const { name, role } = ctx.session;
+        const { name, role } = ctx.session.currentUser;
         const { page = 1, pageSize = 10 } = ctx.query;
         const query = {
             creator: name,
@@ -25,23 +25,39 @@ class ProjectController extends Controller {
 
     async create() {
         const ctx = this.ctx;
-        const { name, name_cn = name } = ctx.request.body;
-
-        if (!ctx.helper.isNotEmpty(name)) {
-           return ctx.body = ctx.response.ServerResponse.error('参数不合法');
+        const { name, name_cn } = ctx.request.body;
+        const currentUser = await this.app.redis.get('currentUser');
+        const rule={
+            name:{
+              type:'string',
+              message:'项目英文名称不能为空',
+              max:20,
+              format:/^\s*[a-zA-Z\d_-]+\s*$/,
+      
+            }
+          }
+          try {
+              ctx.validate(rule);
+          } catch(e) {
+            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() });
+          
+        
+           
+        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() }, currentUser);
     }
 
     async destroy() {
         const ctx = this.ctx;
+        const currentUser = await this.app.redis.get('currentUser');
         const id = ctx.helper.parseInt(ctx.params.id);
-        ctx.body = await ctx.service.project.destroy(id);
+        ctx.body = await ctx.service.project.destroy(id, currentUser);
     }
 
     async update() {
         // 只能修改中文标识
         const ctx = this.ctx;
+        const currentUser = await this.app.redis.get('currentUser');
         const id = ctx.helper.parseInt(ctx.params.id);
         const { name_cn } = ctx.request.body;
         if (!ctx.helper.isNotEmpty(name_cn)) {

@@ -22,6 +22,7 @@ class Project extends Service {
 
     
     async list({ page = 1, pageSize = 10, creator, role = 0}) {
+        // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'name_cn'],
             // where: { creator: role === 1 ? null : creator  },
@@ -36,13 +37,14 @@ class Project extends Service {
     }
 
 
-    async create(data) {
+    async create(data, currentUser) {
         const { name } = data;
+        
         let project = await this._checkExistByField('name', name);
         if (project) {
             return this.ServerResponse.error('项目已经存在', this.ResponseCode.ERROR_ARGUMENT);
         } else {
-            project = await this.ProjectModel.create({ ...data, creator: this.ctx.session.currentUser.name });
+            project = await this.ProjectModel.create({ ...data, creator: currentUser.name });
         }
         if (project) {
             return this.ServerResponse.success('创建成功', project);
@@ -51,8 +53,12 @@ class Project extends Service {
         }
     }
 
-    async destroy(id) {
+    async destroy(id, currentUser) {
         const project = await this.ProjectModel.findById(id);
+        if (project.visitor.indexOf(currentUser.id) === -1) {
+            return this.ServerResponse.error('你没有权限删除');
+        }
+        // 普通用户无权删除
         if (project) {
             await project.destroy()
             return this.ServerResponse.success('删除成功');
@@ -62,6 +68,7 @@ class Project extends Service {
     }
 
     async update({id = -99, name_cn = ''}) {
+        // 普通用户无权更新
         const project = await this._checkExistByField('id', id);
         if (project) {
             await project.update({name_cn});

@@ -130,7 +130,7 @@ class AccountController extends Controller {
         ctx.validate(rule)
     } catch (e) {
 
-      return ctx.body = e; 
+      return ctx.body = ctx.response.ServerResponse.error('参数不合法'); 
     }
 
 
@@ -157,7 +157,7 @@ class AccountController extends Controller {
     const response = await this.service.account.login(mobile, password);
 
     if (response.isSuccess()) {
-      this.app.redis.set('currentUser', response.getData());
+      await this.app.redis.set('currentUser', response.getData());
       this.session.currentUser = response.getData();
     }
 

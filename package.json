@@ -11,7 +11,6 @@
     "egg-session-redis": "^2.1.0",
     "egg-swagger-decorator": "^0.1.1",
     "egg-validate": "^2.0.1",
-    "lodash": "^4.17.11",
     "md5": "^2.2.1",
     "moment": "^2.22.2",
     "mysql2": "^1.6.1"
@@ -24,7 +23,7 @@
     "egg-bin": "^4.9.0",
     "egg-mock": "^3.20.1",
     "factory-girl": "^5.0.2",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "sequelize-cli": "^4.1.1"
   },
   "engines": {
