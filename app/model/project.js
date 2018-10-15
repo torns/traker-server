@@ -14,7 +14,7 @@ module.exports = app => {
       allowNull: false
     }, // 英文标识，必须唯一
     name_cn: STRING(30), // 中文标识
-    creator: UUID,
+    creator: INTEGER,
     visitor: STRING(100),
   });
 
