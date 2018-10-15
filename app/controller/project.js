@@ -9,10 +9,16 @@ class ProjectController extends Controller {
         this.session = ctx.session;
     }
 
+    get currentUser() {
+        let user = await this.ctx.app.redis.get('currentUser');
+        if (!user) {
+            user = this.ctx.session.currentUser;
+        }
+        return user;
+    }
     
     async index() {
         const ctx = this.ctx;
-        const { name, role } = ctx.session;
         const { page = 1, pageSize = 10 } = ctx.query;
         const query = {
             creator: name,
@@ -20,23 +26,36 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.list(query);
+        ctx.body = await ctx.service.project.list(query, this.currentUser);
     }
 
     async create() {
         const ctx = this.ctx;
-        const { name, name_cn = name } = ctx.request.body;
-
-        if (!ctx.helper.isNotEmpty(name)) {
-           return ctx.body = ctx.response.ServerResponse.error('参数不合法');
+        const { name, name_cn } = ctx.request.body;
+        const rule={
+            name:{
+              type:'string',
+              message:'项目英文名称不能为空',
+              max:20,
+              format:/^\s*[a-zA-Z\d_-]+\s*$/,
+      
+            }
+          }
+          try {
+              ctx.validate(rule);
+          } catch(e) {
+            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() });
+          
+        
+           
+        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() }, this.currentUser);
     }
 
     async destroy() {
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
-        ctx.body = await ctx.service.project.destroy(id);
+        ctx.body = await ctx.service.project.destroy(id, this.currentUser);
     }
 
     async update() {
@@ -47,7 +66,7 @@ class ProjectController extends Controller {
         if (!ctx.helper.isNotEmpty(name_cn)) {
            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()});
+        ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()}, this.currentUser);
     }
 
     
