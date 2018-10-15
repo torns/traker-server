@@ -15,6 +15,10 @@ module.exports = appInfo => {
     "database": "tracker_development",
     host: '97.64.36.18',
     port: 3306,
+    define: {
+      underscored: true
+    }
+
   };
 
   config.redis = {
