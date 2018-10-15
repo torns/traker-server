@@ -4,6 +4,7 @@ const { wrapper,makeSwaggerRouter} = require('egg-swagger-decorator');
 
 module.exports = app => {
   require('./router/account')(app);
+  require('./router/event')(app);
   require('./router/project')(app);
   wrapper(app, {
     title: '埋点接口',
