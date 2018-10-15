@@ -17,28 +17,28 @@ class EventController extends Controller {
    * [track 获取埋点]
    * @return {Promise} [description]
    */
-  // @request('get', '/event')
-  // @summary('获取埋点')
-  // @description('获取埋点,支持get&post')
-  // @group
-  // @query({
-  //  data: { type: 'object', required: false,  description: '页码' },
-  //  lib: { type: 'object', required: false, description: '每页尺寸' }
-  // })
-  // @responses({ 200: {description:'OK'}})
-  // async track() {
-  //   const ctx = this.ctx;
-  //   const body=ctx.request.body;
-  //   let data=null;
+  @request('get', '/event')
+  @summary('获取埋点')
+  @description('获取埋点,支持get&post')
+  @group
+  @query({
+   data: { type: 'object', required: false,  description: '页码' },
+   lib: { type: 'object', required: false, description: '每页尺寸' }
+  })
+  @responses({ 200: {description:'OK'}})
+  async track() {
+    const ctx = this.ctx;
+    const body=ctx.request.body;
+    let data=null;
 
-  //   if(ctx.method==='GET'){
-  //     data=ctx.query.data
-  //   }else{
-  //     data=body
-  //   }
-  //   data=JSON.parse(Buffer.from(data,'base64').toString())
-  //   ctx.body =await ctx.service.event.track(data);
-  // }
+    if(ctx.method==='GET'){
+      data=ctx.query.data
+    }else{
+      data=body
+    }
+    data=JSON.parse(Buffer.from(data,'base64').toString())
+    ctx.body =await ctx.service.event.track(data);
+  }
 
 
   async index() {

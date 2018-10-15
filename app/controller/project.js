@@ -10,13 +10,13 @@ class ProjectController extends Controller {
     }
 
     get currentUser() {
-        let user = await this.ctx.app.redis.get('currentUser');
+        let user =  this.ctx.app.redis.get('currentUser');
         if (!user) {
             user = this.ctx.session.currentUser;
         }
         return user;
     }
-    
+
     async index() {
         const ctx = this.ctx;
         const { page = 1, pageSize = 10 } = ctx.query;
@@ -56,7 +56,7 @@ class ProjectController extends Controller {
               message:'项目英文名称不能为空',
               max:20,
               format:/^\s*[a-zA-Z\d_-]+\s*$/,
-      
+
             }
           }
           try {
@@ -64,9 +64,9 @@ class ProjectController extends Controller {
           } catch(e) {
             return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-          
-        
-           
+
+
+
         ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() }, this.currentUser);
     }
 
@@ -87,7 +87,7 @@ class ProjectController extends Controller {
         ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()}, this.currentUser);
     }
 
-    
+
 }
 
 module.exports = ProjectController;
