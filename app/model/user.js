@@ -1,18 +1,12 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { STRING, INTEGER, DATE,UUID,UUIDV4 } = app.Sequelize;
 
   const User = app.model.define('user', {
-    id: {
-      type: INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: STRING(30),
-    age: INTEGER,
-    created_at: DATE,
-    updated_at: DATE,
+    identify: {type:UUID,primaryKey: true,defaultValue: UUIDV4},
+    userId:INTEGER,
+    ua:STRING(300),
   });
 
   // User.prototype.associate = function() {

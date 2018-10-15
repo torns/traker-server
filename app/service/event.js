@@ -11,6 +11,7 @@ class Event extends Service {
     this.ResponseCode = ctx.response.ResponseCode;
     this.ServerResponse = ctx.response.ServerResponse;
     this.EventModel = ctx.model.Event;
+    this.UserModel = ctx.model.User;
     this.Op = this.app.Sequelize.Op;
   }
 
@@ -19,11 +20,43 @@ class Event extends Service {
   async _checkExistByField(field, value) {
   }
 
+  async _dealData(data){
+    let identify=this.ctx.cookies.get('TRACKER_IDENTIFY');
+    if(!identify){
+      const user=await this.UserModel.create({
+        ua:data.ua,
+        clientHeight:data.clientHeight,
+        clientWidth:data.clientWidth
+      })
+
+      this.ctx.cookies.set(
+        'TRACKER_IDENTIFY',
+        user.identify,
+        {
+          expires: new Date('2099-01-01')
+        }
+      )
+    }
+
+    data.forEach(item=>{
+       item.firstVisit=!identify
+       item.ip=this.ctx.request.ip
+       item.ua=item.ua||this.ctx.request.header['user-agent'];
+       item.pageTimes=JSON.stringify(item.pageTimes)
+    })
+
+
+    return data;
+
+
+  }
+
   async track(data) {
     try{
       data=JSON.parse(data)
-      data.ip=this.ctx.request.ip;
-      data.ua=data.ua||this.ctx.request.header['user-agent'];
+
+      data=await this._dealData(data)
+
       const response =await this.EventModel.bulkCreate(data);
       if(response){
         return this.ServerResponse.success("保存成功")
@@ -31,6 +64,7 @@ class Event extends Service {
         return this.ServerResponse.error("保存失败")
       }
     }catch(e){
+      console.log(e)
       return this.ServerResponse.error("保存失败")
     }
 

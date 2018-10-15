@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { STRING, INTEGER, DATE ,TEXT} = app.Sequelize;
 
   const Event = app.model.define('event', {
     id: {
@@ -27,7 +27,7 @@ module.exports = app => {
     domContent:{type:STRING(200),field:'dom_content'},
     startTime:{type:DATE,field:'start_time'},
     endTime:{type:DATE,field:'end_time'},
-    pageTimes:{type:STRING(200),field:'page_times'},
+    pageTimes:{type:TEXT,field:'page_times'},
     invalidTime:{type:INTEGER,field:'invalid_time'},
     //预留3个自定义自动
     custom1:STRING(100),
@@ -44,6 +44,8 @@ module.exports = app => {
 
     //client
     ua: STRING(100),
+    identify:STRING(100),
+    userId: {type:INTEGER,field:'user_id'},
     userId: {type:INTEGER,field:'user_id'},
     clientWidth:{ type:INTEGER,field:'client_width'},
     clientHeight: {type:INTEGER,field:'client_height'},
