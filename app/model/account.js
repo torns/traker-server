@@ -1,5 +1,5 @@
 'use strict';
-
+const { ROLE_CUSTOMER } = require('../constant/role');
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
@@ -12,6 +12,10 @@ module.exports = app => {
     name: STRING(30),
     mobile: STRING(40),
     password:STRING(100),
+    role: {
+      type: INTEGER(4),
+      defaultValue: ROLE_CUSTOMER
+    },
     created_at: DATE,
     updated_at: DATE,
   });

@@ -4,6 +4,8 @@ module.exports = app => {
     
     app.resources('project', '/project', app.controller.project);
 
+    app.router.get(prefix + '/self', app.controller.project.self);
+    app.router.get(prefix + '/visit', app.controller.project.visit)
   
   };
   

@@ -21,12 +21,11 @@ class Project extends Service {
     }
 
     
-    async list({ page = 1, pageSize = 10, creator, role}, currentUser) {
-        const { name, role } = currentUser;
+    async list({ page = 1, pageSize = 10 }, currentUser) {
+        const { id, role } = currentUser;
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'name_cn'],
-            // where: { creator: role === 1 ? null : creator  },
             offset: (page - 1) * pageSize,
             limit: pageSize
         });
@@ -36,6 +35,44 @@ class Project extends Service {
             return this.ServerResponse.error('查询失败');
         }
     }
+
+    async self({ page = 1, pageSize = 10 }, currentUser) {
+        const { id } = currentUser;
+        const result = await this.ProjectModel.findAndCountAll({
+            attributes: ['id', 'name', 'name_cn'],
+            where: { creator: id  },
+            offset: (page - 1) * pageSize,
+            limit: pageSize
+        });
+        if (result) {
+            return this.ServerResponse.success('查询成功', {totalCount: result.count, list: result.rows });
+        } else {
+            return this.ServerResponse.error('查询失败');
+        }
+    }
+
+    async visit({ page = 1, pageSize = 10 }, currentUser) {
+        const { id } = currentUser;
+        const result = await this.ProjectModel.findAndCountAll({
+            attributes: ['id', 'name', 'name_cn'],
+            where: { 
+                creator: {
+                    [this.Op.ne]: id
+                },
+                visitor: {
+                    [this.Op.like]: id
+                } 
+            },
+            offset: (page - 1) * pageSize,
+            limit: pageSize
+        });
+        if (result) {
+            return this.ServerResponse.success('查询成功', {totalCount: result.count, list: result.rows });
+        } else {
+            return this.ServerResponse.error('查询失败');
+        }
+    }
+
 
 
     async create(data, currentUser) {

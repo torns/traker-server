@@ -21,12 +21,30 @@ class ProjectController extends Controller {
         const ctx = this.ctx;
         const { page = 1, pageSize = 10 } = ctx.query;
         const query = {
-            creator: name,
-            role,
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
         ctx.body = await ctx.service.project.list(query, this.currentUser);
+    }
+
+    async self() {
+        const ctx = this.ctx;
+        const { page = 1, pageSize = 10 } = ctx.query;
+        const query = {
+            page: ctx.helper.parseInt(page),
+            pageSize: ctx.helper.parseInt(pageSize)
+        }
+        ctx.body = await ctx.service.project.self(query, this.currentUser);
+    }
+
+    async visit() {
+        const ctx = this.ctx;
+        const { page = 1, pageSize = 10 } = ctx.query;
+        const query = {
+            page: ctx.helper.parseInt(page),
+            pageSize: ctx.helper.parseInt(pageSize)
+        }
+        ctx.body = await ctx.service.project.visit(query, this.currentUser);
     }
 
     async create() {

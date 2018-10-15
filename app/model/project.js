@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE, UUID, Array } = app.Sequelize;
+  const { STRING, INTEGER, DATE, UUID } = app.Sequelize;
 
   const Project = app.model.define('project', {
     id: {
@@ -14,10 +14,8 @@ module.exports = app => {
       allowNull: false
     }, // 英文标识，必须唯一
     name_cn: STRING(30), // 中文标识
-    creator: STRING(30),
-    //visitor: Array,
-    created_at: DATE,
-    updated_at: DATE,
+    creator: UUID,
+    visitor: STRING(100),
   });
 
   // Project.prototype.associate = function() {
