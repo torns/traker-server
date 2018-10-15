@@ -21,7 +21,8 @@ class Project extends Service {
     }
 
     
-    async list({ page = 1, pageSize = 10, creator, role = 0}) {
+    async list({ page = 1, pageSize = 10, creator, role}, currentUser) {
+        const { name, role } = currentUser;
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'name_cn'],
@@ -67,7 +68,7 @@ class Project extends Service {
         }
     }
 
-    async update({id = -99, name_cn = ''}) {
+    async update({id, name_cn}) {
         // 普通用户无权更新
         const project = await this._checkExistByField('id', id);
         if (project) {

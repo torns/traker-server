@@ -12,21 +12,21 @@ class ProjectController extends Controller {
     
     async index() {
         const ctx = this.ctx;
-        const { name, role } = ctx.session.currentUser;
         const { page = 1, pageSize = 10 } = ctx.query;
+        const currentUser = await ctx.app.redis.get('currentUser');
         const query = {
             creator: name,
             role,
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.list(query);
+        ctx.body = await ctx.service.project.list(query, currentUser);
     }
 
     async create() {
         const ctx = this.ctx;
         const { name, name_cn } = ctx.request.body;
-        const currentUser = await this.app.redis.get('currentUser');
+        const currentUser = await ctx.app.redis.get('currentUser');
         const rule={
             name:{
               type:'string',
@@ -49,7 +49,7 @@ class ProjectController extends Controller {
 
     async destroy() {
         const ctx = this.ctx;
-        const currentUser = await this.app.redis.get('currentUser');
+        const currentUser = await ctx.app.redis.get('currentUser');
         const id = ctx.helper.parseInt(ctx.params.id);
         ctx.body = await ctx.service.project.destroy(id, currentUser);
     }
@@ -57,7 +57,7 @@ class ProjectController extends Controller {
     async update() {
         // 只能修改中文标识
         const ctx = this.ctx;
-        const currentUser = await this.app.redis.get('currentUser');
+        const currentUser = await ctx.app.redis.get('currentUser');
         const id = ctx.helper.parseInt(ctx.params.id);
         const { name_cn } = ctx.request.body;
         if (!ctx.helper.isNotEmpty(name_cn)) {
