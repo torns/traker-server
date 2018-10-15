@@ -9,24 +9,29 @@ class ProjectController extends Controller {
         this.session = ctx.session;
     }
 
+    get currentUser() {
+        let user = await this.ctx.app.redis.get('currentUser');
+        if (!user) {
+            user = this.ctx.session.currentUser;
+        }
+        return user;
+    }
     
     async index() {
         const ctx = this.ctx;
         const { page = 1, pageSize = 10 } = ctx.query;
-        const currentUser = await ctx.app.redis.get('currentUser');
         const query = {
             creator: name,
             role,
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.list(query, currentUser);
+        ctx.body = await ctx.service.project.list(query, this.currentUser);
     }
 
     async create() {
         const ctx = this.ctx;
         const { name, name_cn } = ctx.request.body;
-        const currentUser = await ctx.app.redis.get('currentUser');
         const rule={
             name:{
               type:'string',
@@ -44,26 +49,24 @@ class ProjectController extends Controller {
           
         
            
-        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() }, currentUser);
+        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() }, this.currentUser);
     }
 
     async destroy() {
         const ctx = this.ctx;
-        const currentUser = await ctx.app.redis.get('currentUser');
         const id = ctx.helper.parseInt(ctx.params.id);
-        ctx.body = await ctx.service.project.destroy(id, currentUser);
+        ctx.body = await ctx.service.project.destroy(id, this.currentUser);
     }
 
     async update() {
         // 只能修改中文标识
         const ctx = this.ctx;
-        const currentUser = await ctx.app.redis.get('currentUser');
         const id = ctx.helper.parseInt(ctx.params.id);
         const { name_cn } = ctx.request.body;
         if (!ctx.helper.isNotEmpty(name_cn)) {
            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()});
+        ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()}, this.currentUser);
     }
 
     
