@@ -25,7 +25,7 @@ class Project extends Service {
         const { id, role } = currentUser;
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'name', 'name_cn'],
+            attributes: ['id', 'name', 'nameCn'],
             offset: (page - 1) * pageSize,
             limit: pageSize
         });
@@ -39,7 +39,7 @@ class Project extends Service {
     async self({ page = 1, pageSize = 10 }, currentUser) {
         const { id } = currentUser;
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'name', 'name_cn'],
+            attributes: ['id', 'name', 'nameCn'],
             where: { creator: id  },
             offset: (page - 1) * pageSize,
             limit: pageSize
@@ -54,7 +54,7 @@ class Project extends Service {
     async visit({ page = 1, pageSize = 10 }, currentUser) {
         const { id } = currentUser;
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'name', 'name_cn'],
+            attributes: ['id', 'name', 'nameCn'],
             where: { 
                 creator: {
                     [this.Op.ne]: id
@@ -105,11 +105,11 @@ class Project extends Service {
         }
     }
 
-    async update({id, name_cn}) {
+    async update({id, nameCn}) {
         // 普通用户无权更新
         const project = await this._checkExistByField('id', id);
         if (project) {
-            await project.update({name_cn});
+            await project.update({nameCn});
             return this.ServerResponse.success('更新成功');
         } else {
             return this.ServerResponse.error('项目不存在');

@@ -157,7 +157,8 @@ class AccountController extends Controller {
     const response = await this.service.account.login(mobile, password);
 
     if (response.isSuccess()) {
-      await this.ctx.app.redis.set('currentUser', response.getData());
+      await this.ctx.cookies.set('token', response.getData().id, { encrypt: false, httpOnly: true });
+      await this.ctx.app.redis.set(response.getData().id, JSON.stringify(response.getData()));
       this.session.currentUser = response.getData();
     }
 

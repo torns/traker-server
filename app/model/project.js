@@ -13,7 +13,10 @@ module.exports = app => {
       type: STRING(30),
       allowNull: false
     }, // 英文标识，必须唯一
-    name_cn: STRING(30), // 中文标识
+    nameCn: {
+      type: STRING(30),
+      field: 'name_cn'
+    }, // 中文标识
     creator: INTEGER,
     visitor: STRING(100),
   });
