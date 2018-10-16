@@ -9,10 +9,15 @@ class ProjectController extends Controller {
         this.session = ctx.session;
     }
 
-    get currentUser() {
-        let user =  this.ctx.app.redis.get('currentUser');
+    async _getCurrentUser() {
+        const userId = await this.ctx.cookies.get('token', {
+            encrypt: false, httpOnly: true 
+        })
+        let user = await this.ctx.app.redis.get(userId);
         if (!user) {
             user = this.ctx.session.currentUser;
+        } else {
+            user = JSON.parse(user);
         }
         return user;
     }
@@ -24,7 +29,7 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.list(query, this.currentUser);
+        ctx.body = await ctx.service.project.list(query, this._getCurrentUser());
     }
 
     async self() {
@@ -34,7 +39,7 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.self(query, this.currentUser);
+        ctx.body = await ctx.service.project.self(query, this._getCurrentUser());
     }
 
     async visit() {
@@ -44,12 +49,12 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.visit(query, this.currentUser);
+        ctx.body = await ctx.service.project.visit(query, this._getCurrentUser());
     }
 
     async create() {
         const ctx = this.ctx;
-        const { name, name_cn } = ctx.request.body;
+        const { name, nameCn } = ctx.request.body;
         const rule={
             name:{
               type:'string',
@@ -67,24 +72,24 @@ class ProjectController extends Controller {
 
 
 
-        ctx.body = await ctx.service.project.create({ name: name.trim(), name_cn: name_cn.trim() }, this.currentUser);
+        ctx.body = await ctx.service.project.create({ name: name.trim(), nameCn: nameCn.trim() }, this._getCurrentUser());
     }
 
     async destroy() {
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
-        ctx.body = await ctx.service.project.destroy(id, this.currentUser);
+        ctx.body = await ctx.service.project.destroy(id, this._getCurrentUser());
     }
 
     async update() {
         // 只能修改中文标识
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
-        const { name_cn } = ctx.request.body;
-        if (!ctx.helper.isNotEmpty(name_cn)) {
+        const { nameCn } = ctx.request.body;
+        if (!ctx.helper.isNotEmpty(nameCn)) {
            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({id, name_cn: name_cn.trim()}, this.currentUser);
+        ctx.body = await ctx.service.project.update({id, nameCn: nameCn.trim()}, this._getCurrentUser());
     }
 
 

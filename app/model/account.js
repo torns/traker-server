@@ -1,7 +1,7 @@
 'use strict';
 const { ROLE_CUSTOMER } = require('../constant/role');
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { STRING, INTEGER, DATE, UUID, UUIDV4 } = app.Sequelize;
 
   const Account = app.model.define('account', {
     id: {
