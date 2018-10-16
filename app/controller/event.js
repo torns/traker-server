@@ -36,6 +36,7 @@ class EventController extends Controller {
     }else{
       data=body
     }
+
     data=JSON.parse(Buffer.from(data,'base64').toString())
     ctx.body =await ctx.service.event.track(data);
   }

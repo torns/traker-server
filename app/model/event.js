@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE ,TEXT} = app.Sequelize;
+  const { STRING, INTEGER, DATE ,TEXT,BOOLEAN} = app.Sequelize;
 
   const Event = app.model.define('event', {
     id: {
@@ -15,6 +15,7 @@ module.exports = app => {
     eventName: {type:STRING(30),field:'event_name'},
     trackId: {type:STRING(100),field:'track_id'},
     pageId: {type:STRING(100),field:'page_id'},
+    trackTime:{type:DATE,field:'track_time'},
     url: STRING(100),
     path: STRING(100),
     host: STRING(100),
@@ -24,6 +25,7 @@ module.exports = app => {
     domHref:{type:STRING(100),field:'dom_href'},
     domName:{type:STRING(100),field:'dom_name'},
     domTag:{type:STRING(100),field:'dom_tag'},
+    domPath:{type:STRING(400),field:'dom_path'},
     domContent:{type:STRING(200),field:'dom_content'},
     startTime:{type:DATE,field:'start_time'},
     endTime:{type:DATE,field:'end_time'},
@@ -37,6 +39,7 @@ module.exports = app => {
 
 
     uuid:STRING(200),
+    firstVisit:{type:BOOLEAN,field:'first_visit'},
 
 
 

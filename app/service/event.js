@@ -23,7 +23,7 @@ class Event extends Service {
   async _dealData(data){
     let identify=this.ctx.cookies.get('TRACKER_IDENTIFY');
     if(!identify){
-      const user=await this.UserModel.create({
+      var user=await this.UserModel.create({
         ua:data.ua,
         clientHeight:data.clientHeight,
         clientWidth:data.clientWidth
@@ -39,7 +39,9 @@ class Event extends Service {
     }
 
     data.forEach(item=>{
+       item.identify=identify||user.identify
        item.firstVisit=!identify
+       item.trackTime=data.useServerTime?item.trackTime+Date.now()-Number(this.ctx.query.time):item.trackTime
        item.ip=this.ctx.request.ip
        item.ua=item.ua||this.ctx.request.header['user-agent'];
        item.pageTimes=JSON.stringify(item.pageTimes)
