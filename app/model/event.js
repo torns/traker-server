@@ -36,6 +36,9 @@ module.exports = app => {
     ip:STRING(100),
 
 
+    uuid:STRING(200),
+
+
 
 
     //lib

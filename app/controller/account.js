@@ -110,8 +110,7 @@ class AccountController extends Controller {
       name:{
         type:'string',
         message:'用户名最多20个字符',
-        max:20,
-        format:/^1\d{10}$/,
+        max:20
 
       },
       mobile:{
@@ -130,7 +129,7 @@ class AccountController extends Controller {
         ctx.validate(rule)
     } catch (e) {
 
-      return ctx.body = ctx.response.ServerResponse.error('参数不合法'); 
+      return ctx.body = ctx.response.ServerResponse.error('参数不合法');
     }
 
 
