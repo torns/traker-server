@@ -26,6 +26,11 @@ class Project extends Service {
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'nameCn'],
+            where: {
+                [this.Op.or]: [
+                    { creator: id }, { visitor: { [this.Op.like]: id }}
+                ]
+            },
             offset: (page - 1) * pageSize,
             limit: pageSize
         });
