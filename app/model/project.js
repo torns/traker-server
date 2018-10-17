@@ -17,8 +17,8 @@ module.exports = app => {
       type: STRING(30),
       field: 'name_cn'
     }, // 中文标识
-    creator: INTEGER,
-    visitor: STRING(100),
+    creator: STRING(40), // 登录用户手机号
+    visitor: STRING(100), // 手机号,连接
   });
 
   // Project.prototype.associate = function() {
