@@ -16,8 +16,14 @@ exports.validate = {
 exports.redis = {
   enable: true,
   package: 'egg-redis'
-}
+};
 
 exports.static = {
    maxAge: 31536000,
 };
+
+
+exports.cors = {
+  enable: true,
+  package: 'egg-cors'
+}

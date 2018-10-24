@@ -1,9 +1,15 @@
 module.exports = options => {
 
   return async function checkLogin(ctx, next) {
-    let user = await ctx.app.redis.get('currentUser');
+   
+    const userId = await this.ctx.cookies.get('token', {
+      encrypt: false, httpOnly: true 
+    })
+    let user = await this.ctx.app.redis.get(userId);
     if (!user) {
-      user = ctx.session.currentUser;
+        user = this.ctx.session.currentUser;
+    } else {
+        user = JSON.parse(user);
     }
     if (!user){
       return ctx.body = ctx.response.ServerResponse.error( '用户未登录',ctx.response.ResponseCode.NO_LOGIN);
