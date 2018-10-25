@@ -24,9 +24,10 @@ class Event extends Service {
     let identify=this.ctx.cookies.get('TRACKER_IDENTIFY');
     if(!identify){
       var user=await this.UserModel.create({
-        ua:data.ua,
-        clientHeight:data.clientHeight,
-        clientWidth:data.clientWidth
+        ua:this.ctx.request.headers['user-agent'],
+        clientHeight:data[0].clientHeight,
+        clientWidth:data[0].clientWidth,
+        userId:data[0].userId
       })
 
       this.ctx.cookies.set(
@@ -55,6 +56,9 @@ class Event extends Service {
 
   async track(data) {
     try{
+      if(!data.length){
+        return this.ServerResponse.success("保存成功")
+      }
       data=JSON.parse(data)
 
       data=await this._dealData(data)
