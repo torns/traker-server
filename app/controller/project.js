@@ -62,6 +62,11 @@ class ProjectController extends Controller {
               max:20,
               format:/^\s*[a-zA-Z\d_-]+\s*$/,
 
+            },
+            nameCn: {
+                type: 'string',
+                max: 20,
+                message: '项目名称不能为空'
             }
           }
           try {
@@ -72,7 +77,7 @@ class ProjectController extends Controller {
 
 
 
-        ctx.body = await ctx.service.project.create({ name: name.trim(), nameCn: nameCn.trim() }, this._getCurrentUser());
+        ctx.body = await ctx.service.project.create({ ...ctx.request.body }, this._getCurrentUser());
     }
 
     async destroy() {
@@ -82,14 +87,22 @@ class ProjectController extends Controller {
     }
 
     async update() {
-        // 只能修改中文标识
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
         const { nameCn } = ctx.request.body;
-        if (!ctx.helper.isNotEmpty(nameCn)) {
-           return ctx.body = ctx.response.ServerResponse.error('参数不合法');
+        const rule={
+            nameCn: {
+                type: 'string',
+                max: 20,
+                message: '项目名称不能为空'
+            }
+          }
+          try {
+              ctx.validate(rule);
+          } catch(e) {
+            return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({id, nameCn: nameCn.trim()}, this._getCurrentUser());
+        ctx.body = await ctx.service.project.update({...ctx.request.body}, this._getCurrentUser());
     }
 
 

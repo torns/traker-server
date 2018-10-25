@@ -15,6 +15,21 @@ class AccountController extends Controller {
     super(ctx)
     this.session = ctx.session;
   }
+
+  async _getCurrentUser() {
+    // const userId = await this.ctx.cookies.get('token', {
+    //     encrypt: false, httpOnly: true 
+    // })
+    // let user = await this.ctx.app.redis.get(userId);
+    // if (!user) {
+    //     user = this.ctx.session.currentUser;
+    // } else {
+    //     user = JSON.parse(user);
+    // }
+    let user = await this.ctx.session.currentUser;
+    return user;
+  }
+
   /**
    * [index 获取用户列表]
    * @return {Promise} [用户列表]
@@ -157,7 +172,7 @@ class AccountController extends Controller {
 
     if (response.isSuccess()) {
       await this.ctx.cookies.set('token', response.getData().id, { encrypt: false, httpOnly: true });
-      await this.ctx.app.redis.set(response.getData().id, JSON.stringify(response.getData()));
+      // await this.ctx.app.redis.set(response.getData().id, JSON.stringify(response.getData()));
       this.session.currentUser = response.getData();
     }
 
@@ -176,6 +191,11 @@ class AccountController extends Controller {
   async logout() {
     this.ctx.session = null;
     this.ctx.body = this.ctx.response.ServerResponse.success('退出成功')
+  }
+
+
+  async get() {
+    this.ctx.body = await this._getCurrentUser();
   }
 }
 
