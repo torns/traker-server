@@ -39,6 +39,7 @@ class Account extends Service {
     return this.ServerResponse.error('参数错误',this.ServerResponse.responseCode.ERROR_ARGUMENT);
   }
 
+
   async list({ page = 1, pageSize = 10 }) {
     const response=await this.AccountModel.findAndCountAll({
       attributes: ['id', 'name','mobile'],
@@ -64,9 +65,9 @@ class Account extends Service {
 
 
   async update({ id, updates }) {
-    const account = await this.AccountModel.findById(id);
+    let account = await this.AccountModel.findById(id);
     if (account) {
-      await account.update(updates);
+      await account.update(updates, {fields: ['name']});
       return this.ServerResponse.success("更新成功")
     }else{
       return this.ServerResponse.error("账号不存在")

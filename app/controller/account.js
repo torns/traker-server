@@ -1,5 +1,5 @@
 'use strict';
-
+const _ = require('lodash');
 const Controller = require('egg').Controller;
 const { request, summary, query, path, body, tags ,description,responses}=require('egg-swagger-decorator');
 const group = tags(['账号管理']);
@@ -18,7 +18,7 @@ class AccountController extends Controller {
 
   async _getCurrentUser() {
     // const userId = await this.ctx.cookies.get('token', {
-    //     encrypt: false, httpOnly: true 
+    //     encrypt: false, httpOnly: true
     // })
     // let user = await this.ctx.app.redis.get(userId);
     // if (!user) {
@@ -80,7 +80,11 @@ class AccountController extends Controller {
     const ctx = this.ctx;
     const id = ctx.helper.parseInt(ctx.params.id);
     const body = ctx.request.body;
-    ctx.body = await ctx.service.account.update({ id, updates: body });
+    const response= await ctx.service.account.update({ id, updates: body });
+    if(response.isSuccess()){
+      this.session.currentUser = response.getData();
+    }
+    ctx.body=response
   }
 
   /**
@@ -147,9 +151,12 @@ class AccountController extends Controller {
       return ctx.body = ctx.response.ServerResponse.error('参数不合法');
     }
 
+    const response = await ctx.service.account.register(ctx.request.body);
 
-    const account = await ctx.service.account.register(ctx.request.body);
-    ctx.body = account;
+    if (response.isSuccess()) {
+      this.session.currentUser = response.getData();
+    }
+    ctx.body = response;
   }
 
   /**
@@ -167,12 +174,9 @@ class AccountController extends Controller {
    @responses({200:accountInfoSchema})
   async login() {
     const { mobile, password } = this.ctx.request.body;
-
     const response = await this.service.account.login(mobile, password);
 
     if (response.isSuccess()) {
-      await this.ctx.cookies.set('token', response.getData().id, { encrypt: false, httpOnly: true });
-      // await this.ctx.app.redis.set(response.getData().id, JSON.stringify(response.getData()));
       this.session.currentUser = response.getData();
     }
 
@@ -194,8 +198,18 @@ class AccountController extends Controller {
   }
 
 
-  async get() {
-    this.ctx.body = await this._getCurrentUser();
+  /**
+   * [getInfo description]
+   * @return {Promise} [description]
+   */
+   @request('get', '/account/getInfo')
+   @summary('用户信息')
+   @description('获取登录用户信息')
+   @group
+  async getInfo() {
+    const userInfo=this.ctx.session.currentUser;
+    _.unset(userInfo, 'password');
+    this.ctx.body = this.ctx.response.ServerResponse.success('OK',userInfo)
   }
 }
 
