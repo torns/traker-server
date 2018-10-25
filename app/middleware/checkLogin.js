@@ -2,15 +2,17 @@ module.exports = options => {
 
   return async function checkLogin(ctx, next) {
    
-    const userId = await this.ctx.cookies.get('token', {
-      encrypt: false, httpOnly: true 
-    })
-    let user = await this.ctx.app.redis.get(userId);
-    if (!user) {
-        user = this.ctx.session.currentUser;
-    } else {
-        user = JSON.parse(user);
-    }
+    // const userId = await ctx.cookies.get('token', {
+    //   encrypt: false, httpOnly: true 
+    // })
+    // let user = await ctx.app.redis.get(userId);
+    // if (!user) {
+    //     user = ctx.session.currentUser;
+    // } else {
+    //     user = JSON.parse(user);
+    // }
+    let user = await ctx.session.currentUser;
+    console.log(user)
     if (!user){
       return ctx.body = ctx.response.ServerResponse.error( '用户未登录',ctx.response.ResponseCode.NO_LOGIN);
     }else {
