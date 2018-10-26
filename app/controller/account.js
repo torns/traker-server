@@ -188,7 +188,7 @@ class AccountController extends Controller {
    * [logout description]
    * @return {Promise} [description]
    */
-   @request('get', '/account/logout')
+   @request('post', '/account/logout')
    @summary('退出用户')
    @description('退出用户')
    @group

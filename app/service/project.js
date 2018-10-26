@@ -21,8 +21,8 @@ class Project extends Service {
     }
 
     
-    async list({ page = 1, pageSize = 10 }, currentUser) {
-        const { id, role } = currentUser;
+    async list({ page = 1, pageSize = 10 }) {
+        const { id } = this.ctx.session.currentUser;
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'nameCn'],
@@ -41,8 +41,8 @@ class Project extends Service {
         }
     }
 
-    async self({ page = 1, pageSize = 10 }, currentUser) {
-        const { id } = currentUser;
+    async self({ page = 1, pageSize = 10 }) {
+        const { id } = this.ctx.session.currentUser;
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'nameCn'],
             where: { creator: id  },
@@ -56,8 +56,8 @@ class Project extends Service {
         }
     }
 
-    async visit({ page = 1, pageSize = 10 }, currentUser) {
-        const { id } = currentUser;
+    async visit({ page = 1, pageSize = 10 }) {
+        const { id } = this.ctx.session.currentUser;
         const result = await this.ProjectModel.findAndCountAll({
             attributes: ['id', 'name', 'nameCn'],
             where: { 
@@ -80,14 +80,14 @@ class Project extends Service {
 
 
 
-    async create(data, currentUser) {
+    async create(data) {
         const { name } = data;
         
         let project = await this._checkExistByField('name', name);
         if (project) {
             return this.ServerResponse.error('项目已经存在', this.ResponseCode.ERROR_ARGUMENT);
         } else {
-            project = await this.ProjectModel.create({ ...data, creator: currentUser.mobile });
+            project = await this.ProjectModel.create({ ...data, creator: this.ctx.session.currentUser.mobile });
         }
         if (project) {
             return this.ServerResponse.success('创建成功', project);
@@ -96,10 +96,10 @@ class Project extends Service {
         }
     }
 
-    async destroy(id, currentUser) {
+    async destroy(id) {
         const project = await this._checkExistByField('id', id);
         // 普通用户无权删除
-        if (project.creator !== currentUser.mobile) {
+        if (project.creator !== this.ctx.session.currentUser.mobile) {
             return this.ServerResponse.error('你没有权限删除');
         }
         
@@ -114,7 +114,7 @@ class Project extends Service {
     async update({id, ...data}) {
         // 普通用户无权更新
         const project = await this._checkExistByField('id', id);
-        if (project.creator !== currentUser.mobile) {
+        if (project.creator !== this.ctx.session.currentUser.mobile) {
             return this.ServerResponse.error('你没有权限删除');
         }
         if (project) {

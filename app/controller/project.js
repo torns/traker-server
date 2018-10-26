@@ -9,18 +9,7 @@ class ProjectController extends Controller {
         this.session = ctx.session;
     }
 
-    async _getCurrentUser() {
-        const userId = await this.ctx.cookies.get('token', {
-            encrypt: false, httpOnly: true 
-        })
-        let user = await this.ctx.app.redis.get(userId);
-        if (!user) {
-            user = this.ctx.session.currentUser;
-        } else {
-            user = JSON.parse(user);
-        }
-        return user;
-    }
+    
 
     async index() {
         const ctx = this.ctx;
@@ -29,7 +18,7 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.list(query, this._getCurrentUser());
+        ctx.body = await ctx.service.project.list(query);
     }
 
     async self() {
@@ -39,7 +28,7 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.self(query, this._getCurrentUser());
+        ctx.body = await ctx.service.project.self(query);
     }
 
     async visit() {
@@ -49,7 +38,7 @@ class ProjectController extends Controller {
             page: ctx.helper.parseInt(page),
             pageSize: ctx.helper.parseInt(pageSize)
         }
-        ctx.body = await ctx.service.project.visit(query, this._getCurrentUser());
+        ctx.body = await ctx.service.project.visit(query);
     }
 
     async create() {
@@ -77,13 +66,13 @@ class ProjectController extends Controller {
 
 
 
-        ctx.body = await ctx.service.project.create({ ...ctx.request.body }, this._getCurrentUser());
+        ctx.body = await ctx.service.project.create({ ...ctx.request.body });
     }
 
     async destroy() {
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
-        ctx.body = await ctx.service.project.destroy(id, this._getCurrentUser());
+        ctx.body = await ctx.service.project.destroy(id);
     }
 
     async update() {
@@ -102,7 +91,7 @@ class ProjectController extends Controller {
           } catch(e) {
             return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
-        ctx.body = await ctx.service.project.update({...ctx.request.body}, this._getCurrentUser());
+        ctx.body = await ctx.service.project.update({...ctx.request.body});
     }
 
 
