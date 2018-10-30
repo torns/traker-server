@@ -21,6 +21,10 @@ class ProjectController extends Controller {
         ctx.body = await ctx.service.project.list(query);
     }
 
+    async all() {
+        this.ctx.body = await this.ctx.service.project.list({page: 1, pageSize: 100000, attributes: ['projectCode', 'projectName', 'id']});
+    }
+
     async self() {
         const ctx = this.ctx;
         const { page = 1, pageSize = 10 } = ctx.query;

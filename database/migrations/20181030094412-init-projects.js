@@ -2,12 +2,13 @@
 
 module.exports = {
 up: async (queryInterface, Sequelize) => {
-    const { UUID, DATE, STRING } = Sequelize;
+    const { DATE, STRING, INTEGER } = Sequelize;
     await queryInterface.createTable('projects', {
-      id: { type: UUID, primaryKey: true, unique: true },
-      name: STRING(30),
-      name_cn: STRING(30),
-      creator: STRING(30),
+      id: { type: INTEGER, primaryKey: true, unique: true },
+      project_code: STRING(30),
+      project_name: STRING(30),
+      creator: STRING(40),
+      visitor: STRING(100),
       created_at: DATE,
       updated_at: DATE,
     });

@@ -21,16 +21,19 @@ class Project extends Service {
     }
 
     
-    async list({ page = 1, pageSize = 10 }) {
-        const { mobile } = this.ctx.session.currentUser;
+    async list({ page = 1, pageSize = 10, attributes }) {
+        const ctx = this.ctx;
+        const { mobile } = ctx.session.currentUser;
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'projectCode', 'projectName', 'creator', 'visitor'],
+            attributes: attributes || ['id', 'projectCode', 'projectName', 'creator', 'visitor'],
             where: {
                 [this.Op.or]: [
                     { creator: mobile }, { visitor: { [this.Op.like]: '%' + mobile + '%' }}
                 ]
             },
+            // include: [ctx.model.Account],
+            order: [['id', 'DESC']],
             offset: (page - 1) * pageSize,
             limit: pageSize
         });

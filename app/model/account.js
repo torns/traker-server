@@ -20,8 +20,10 @@ module.exports = app => {
     updated_at: DATE,
   });
 
-  // Account.prototype.associate = function() {
-  //   app.model.Account.hasMany(app.model.Post, { as: 'posts' });
+  
+
+  // Account.associate = function() {
+  //   app.model.Account.hasMany(app.model.Project);
   // };
 
   return Account;
