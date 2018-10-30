@@ -5,17 +5,18 @@ module.exports = app => {
 
   const Project = app.model.define('project', {
     id: {
-      type: UUID,
+      type: INTEGER,
       primaryKey: true,
-      unique: true
+      autoIncrement: true,
     },
-    name: {
+    projectCode: {
       type: STRING(30),
-      allowNull: false
+      allowNull: false,
+      field: 'project_code'
     }, // 英文标识，必须唯一
-    nameCn: {
+    projectName: {
       type: STRING(30),
-      field: 'name_cn'
+      field: 'project_name'
     }, // 中文标识
     creator: STRING(40), // 登录用户手机号
     visitor: STRING(100), // 手机号,连接

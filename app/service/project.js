@@ -14,21 +14,21 @@ class Project extends Service {
 
     async _checkExistByField(field, value) {
         const data = await this.ProjectModel.findOne({
-          attributes: [ field ],
-          where: { [field]: value },
+            attributes: ['id', 'projectCode', 'projectName', 'creator', 'visitor'],
+            where: { [field]: value },
         });
         return data;
     }
 
     
     async list({ page = 1, pageSize = 10 }) {
-        const { id } = this.ctx.session.currentUser;
+        const { mobile } = this.ctx.session.currentUser;
         // 0:超级管理员 1:普通管理员 2:普通用户
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'name', 'nameCn'],
+            attributes: ['id', 'projectCode', 'projectName', 'creator', 'visitor'],
             where: {
                 [this.Op.or]: [
-                    { creator: id }, { visitor: { [this.Op.like]: id }}
+                    { creator: mobile }, { visitor: { [this.Op.like]: '%' + mobile + '%' }}
                 ]
             },
             offset: (page - 1) * pageSize,
@@ -42,10 +42,10 @@ class Project extends Service {
     }
 
     async self({ page = 1, pageSize = 10 }) {
-        const { id } = this.ctx.session.currentUser;
+        const { mobile } = this.ctx.session.currentUser;
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'name', 'nameCn'],
-            where: { creator: id  },
+            attributes: ['id', 'projectCode', 'projectName', 'creator', 'visitor'],
+            where: { creator: mobile  },
             offset: (page - 1) * pageSize,
             limit: pageSize
         });
@@ -57,15 +57,15 @@ class Project extends Service {
     }
 
     async visit({ page = 1, pageSize = 10 }) {
-        const { id } = this.ctx.session.currentUser;
+        const { mobile } = this.ctx.session.currentUser;
         const result = await this.ProjectModel.findAndCountAll({
-            attributes: ['id', 'name', 'nameCn'],
+            attributes: ['id', 'projectCode', 'projectName', 'creator', 'visitor'],
             where: { 
                 creator: {
-                    [this.Op.ne]: id
+                    [this.Op.ne]: mobile
                 },
                 visitor: {
-                    [this.Op.like]: id
+                    [this.Op.like]: '%' + mobile + '%'
                 } 
             },
             offset: (page - 1) * pageSize,
@@ -81,9 +81,9 @@ class Project extends Service {
 
 
     async create(data) {
-        const { name } = data;
+        const { projectCode } = data;
         
-        let project = await this._checkExistByField('name', name);
+        let project = await this._checkExistByField('projectCode', projectCode);
         if (project) {
             return this.ServerResponse.error('项目已经存在', this.ResponseCode.ERROR_ARGUMENT);
         } else {
@@ -114,12 +114,18 @@ class Project extends Service {
     async update({id, ...data}) {
         // 普通用户无权更新
         const project = await this._checkExistByField('id', id);
-        if (project.creator !== this.ctx.session.currentUser.mobile) {
-            return this.ServerResponse.error('你没有权限删除');
-        }
         if (project) {
             await project.update(data);
             return this.ServerResponse.success('更新成功');
+        } else {
+            return this.ServerResponse.error('项目不存在');
+        }
+    }
+
+    async show(id) {
+        const project = await this._checkExistByField('id', id);
+        if (project) {
+            return this.ServerResponse.success('查询成功', project);
         } else {
             return this.ServerResponse.error('项目不存在');
         }

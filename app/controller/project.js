@@ -43,16 +43,16 @@ class ProjectController extends Controller {
 
     async create() {
         const ctx = this.ctx;
-        const { name, nameCn } = ctx.request.body;
+        const { projectCode, projectName } = ctx.request.body;
         const rule={
-            name:{
+            projectCode:{
               type:'string',
               message:'项目英文名称不能为空',
               max:20,
               format:/^\s*[a-zA-Z\d_-]+\s*$/,
 
             },
-            nameCn: {
+            projectName: {
                 type: 'string',
                 max: 20,
                 message: '项目名称不能为空'
@@ -78,9 +78,9 @@ class ProjectController extends Controller {
     async update() {
         const ctx = this.ctx;
         const id = ctx.helper.parseInt(ctx.params.id);
-        const { nameCn } = ctx.request.body;
+        const { projectName } = ctx.request.body;
         const rule={
-            nameCn: {
+            projectName: {
                 type: 'string',
                 max: 20,
                 message: '项目名称不能为空'
@@ -92,6 +92,12 @@ class ProjectController extends Controller {
             return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
         ctx.body = await ctx.service.project.update({...ctx.request.body});
+    }
+
+    async show() {
+        const ctx = this.ctx;
+        const id = ctx.helper.parseInt(ctx.params.id);
+        ctx.body = await ctx.service.project.show(id);
     }
 
 

@@ -48,7 +48,7 @@ class Account extends Service {
       order: [[ 'id', 'desc' ]],
     });
     if(response){
-      return this.ServerResponse.success("查询成功",response)
+      return this.ServerResponse.success("查询成功", {totalCount: response.count, list: response.rows});
     }else{
       return this.ServerResponse.error("查询失败")
     }
