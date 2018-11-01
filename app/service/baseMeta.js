@@ -23,7 +23,7 @@ class BaseMeta extends Service {
         const { page = 1, pageSize = 10, projectId } = query;
         console.log(query);
         console.log('------------------------------------------------')
-        
+
         const result = await this.BaseMetaModel.findAndCountAll({
             where: {
                 projectId
@@ -42,10 +42,10 @@ class BaseMeta extends Service {
     async create(data) {
         const { trackId, projectId } = data;
         let result = await this.ProjectModel.findById(projectId);
-        
+
         if (!result) {
             return this.ServerResponse.error('项目不存在', this.ResponseCode.ERROR_ARGUMENT);
-        }     
+        }
         result = await this._checkExistByField({'projectId': projectId, 'trackId': trackId});
         if (result) {
             return this.ServerResponse.error('元事件已经存在', this.ResponseCode.ERROR_ARGUMENT);

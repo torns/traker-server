@@ -8,7 +8,14 @@ class BaseMetaController extends Controller {
 
     async index() {
         const ctx = this.ctx;
-        ctx.body = await ctx.service.baseMeta.list(ctx.query);
+        const { page = 1, pageSize = 10 } = ctx.query;
+        const query = {
+          ...ctx.query
+            page: ctx.helper.parseInt(page),
+            pageSize: ctx.helper.parseInt(pageSize),
+
+        }
+        ctx.body = await ctx.service.baseMeta.list(query);
     }
 
     async create() {
