@@ -93,7 +93,7 @@ class Project extends Service {
             project = await this.ProjectModel.create({ ...data, creator: this.ctx.session.currentUser.mobile });
         }
         if (project) {
-            return this.ServerResponse.success('创建成功', project);
+            return this.ServerResponse.success('创建成功');
         } else {
             return this.ServerResponse.error('创建失败');
         }

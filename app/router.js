@@ -6,6 +6,7 @@ module.exports = app => {
   require('./router/account')(app);
   require('./router/event')(app);
   require('./router/project')(app);
+  require('./router/baseMeta')(app);
   wrapper(app, {
     title: '埋点接口',
     version: 'v1.0.0',
