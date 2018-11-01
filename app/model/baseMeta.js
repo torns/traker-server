@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-    const { STRING, INTEGER, BOOLEAN } = app.Sequelize;
+    const { STRING, INTEGER } = app.Sequelize;
 
     const BaseMeta = app.model.define('base_meta', {
         id: {
@@ -9,6 +9,7 @@ module.exports = app => {
             primaryKey: true,
             autoIncrement: true,
         },
+        creator: STRING(40),
         projectId: {
             type: INTEGER,
             field: 'project_id'
@@ -21,7 +22,10 @@ module.exports = app => {
             type: STRING(100),
             field: 'track_name'
         },
-        status: BOOLEAN,
+        status: {
+            type: INTEGER,
+            defaultValue: 1
+        },
         tags: STRING(100),
         description: {
             type: STRING(100),

@@ -13,13 +13,12 @@ class BaseMetaController extends Controller {
 
     async create() {
         const ctx = this.ctx;
-        const { trackId } = ctx.request.body;
         const rule={
             trackId:{
               type:'string',
               message:'事件ID不能为空',
               max:100,
-              format:/^\s*[a-zA-Z\d_-$]+\s*$/,
+              format:/^\s*[a-zA-Z\d_-]+\s*$/,
 
             },
             trackName: {
@@ -34,9 +33,7 @@ class BaseMetaController extends Controller {
             return ctx.body = ctx.response.ServerResponse.error('参数不合法');
         }
 
-
-
-        ctx.body = await ctx.service.project.create({ ...ctx.request.body });
+        ctx.body = await ctx.service.baseMeta.create({ ...ctx.request.body });
     }
 
     async update() {

@@ -5,8 +5,12 @@ class BaseMeta extends Service {
     constructor(ctx) {
         super(ctx)
         this.BaseMetaModel = ctx.model.BaseMeta;
+        this.ProjectModel = ctx.model.Project;
         this.ServerResponse = ctx.response.ServerResponse;
+        this.ResponseCode = ctx.response.ResponseCode;
+        this.session = ctx.session;
     }
+
 
     async _checkExistByField(conditions) {
         const data = await this.BaseMetaModel.findOne({
@@ -17,7 +21,9 @@ class BaseMeta extends Service {
 
     async list(query) {
         const { page = 1, pageSize = 10, projectId } = query;
-
+        console.log(query);
+        console.log('------------------------------------------------')
+        
         const result = await this.BaseMetaModel.findAndCountAll({
             where: {
                 projectId
@@ -35,7 +41,8 @@ class BaseMeta extends Service {
 
     async create(data) {
         const { trackId, projectId } = data;
-        let result = await this._checkExistByField({'projectId': projectId});
+        let result = await this.ProjectModel.findById(projectId);
+        
         if (!result) {
             return this.ServerResponse.error('项目不存在', this.ResponseCode.ERROR_ARGUMENT);
         }     
@@ -43,7 +50,7 @@ class BaseMeta extends Service {
         if (result) {
             return this.ServerResponse.error('元事件已经存在', this.ResponseCode.ERROR_ARGUMENT);
         } else {
-            result = await this.ProjectModel.create({ ...data, creator: this.ctx.session.currentUser.mobile });
+            result = await this.BaseMetaModel.create({ ...data, creator: this.ctx.session.currentUser.mobile });
         }
         if (result) {
             return this.ServerResponse.success('创建成功');
