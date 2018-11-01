@@ -11,7 +11,7 @@ module.exports = {
       track_name: STRING(100),
       description: STRING(100),
       tags: STRING(100),
-      status: {type: INTEGER},
+      status: {type: INTEGER(4), defaultValue: 1},
       created_at: DATE,
       updated_at: DATE,
     });
